@@ -29,43 +29,13 @@ router.get('/me', async function (req, res, next) {
   console.log(a);
 });
 
-/* GET home page. */
-router.get('/me-fdi-inflows', async function (req, res, next) {
-
-  console.log(a);
-});
-
-
-/* GET home page. */
-router.get('/me-fdi-outflows', async function (req, res, next) {
-  const collection = db.collection('me-fdi-outflows');
-  const country = req.query.country;
-  const a = await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()
-  res.json(a[0])
-  console.log(a);
-});
-
-router.get('/agri-percent-gdp', async function (req, res, next) {
+router.get('/agri', async function (req, res, next) {
   const collection = db.collection('agri-percent-gdp');
+  const collection2 = db.collection('agri-fertilizers');
+  const collection3 = db.collection('agri-fertilizers-prod');
   const country = req.query.country;
-  const a = await collection.find({ 'country': country }, { _id: 0, country: 0 });
-  res.json(a[0])
-  console.log(a);
-});
-
-router.get('/agri-fertilizers', async function (req, res, next) {
-  const collection = db.collection('agri-fertilizers');
-  const country = req.query.country;
-  const a = await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()
-  res.json(a[0])
-  console.log(a);
-});
-
-router.get('/agri-fertilizers-prod', async function (req, res, next) {
-  const collection = db.collection('agri-fertilizers-prod');
-  const country = req.query.country;
-  const a = await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()
-  res.json(a[0])
+  const [a, b, c] = [await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray(), await collection2.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray(), await collection3.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()];
+  res.json({ gdp: a[0], fertilizers: b[0], fertilizersprod: c[0] });
   console.log(a);
 });
 
