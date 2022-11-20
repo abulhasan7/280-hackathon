@@ -25,7 +25,7 @@
     display: inline-block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
   
@@ -177,12 +177,12 @@
 
 <body>
   
-<div style="border:1px solid black;">
+<div style="border:1px solid black;margin: 20px 20px; border-radius: 20px; overflow: hidden">
 <ul>
-  <li><a href="index.html"> <img src="logo.jpg" width="100" height="80"></a></li>
-  <li style="margin-top:40px;margin-left:400px">FOOD SECURITY TIME SERIES DASHBOARD</li>
+  <li><a href="index.html"> <img src="logo.png" width="120" height="100"></a></li>
+  <li style="margin-top:40px;margin-left:350px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: x-large;">FOOD SECURITY TIME SERIES DASHBOARD</li>
   <li class="dropdown" style="float:right">
-    <a href="javascript:void(0)" class="dropbtn" style="margin-top: 30px; margin-right: 10px; border:1px solid black;">Countries</a>
+    <a href="javascript:void(0)" class="dropbtn" style="margin-top: 30px; margin-right: 10px; border:1px solid black; border-radius: 10px;">Countries <i style="margin-left: 50px;"class="fa fa-caret-down"></i></a>
     <div class="dropdown-content">
       <a href="#">India</a>
       <a href="#">China</a>
@@ -192,7 +192,7 @@
 </ul>
 </div>
 
-<div class="sidenav" style="border:1px solid black;">
+<div class="sidenav" style="border:1px solid black; border-radius: 10px;margin: 20px 20px;">
   <button class="dropdwn-btn"> Macroeconomics
     <i class="fa fa-caret-down"></i>
   </button>
@@ -336,6 +336,7 @@ const range = document.querySelectorAll(".range-slider span input");
 progress = document.querySelector(".range-slider .progress");
 let gap = 1;
 const inputValue = document.querySelectorAll(".numberVal input");
+
 range.forEach((input) => {
  input.addEventListener("input", (e) => {
    let minRange = parseInt(range[0].value);
