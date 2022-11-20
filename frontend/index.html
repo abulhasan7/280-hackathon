@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
     body {
@@ -161,6 +162,16 @@
     border-radius: 20px;
     opacity: 1;
   }
+  #addForm {
+  display: none;
+}
+#addForm2 {
+  display: none;
+}
+#addForm3 {
+  display: none;
+}
+
   </style>
 </head>
 
@@ -186,9 +197,9 @@
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdwn-container">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+    <a id="showForm" href="#">Link 1</a>
+    <a id="showForm2" href="#">Link 2</a>
+    <a id="showForm3" href="#">Link 3</a>
   </div>
   <button class="dropdwn-btn">Agricultural
         <i class="fa fa-caret-down"></i>
@@ -220,6 +231,8 @@
 </div>
 <div class="main">
   <h2 style="margin-left: 500px;">CHARTS</h2>
+  
+  <div id="addForm">
   <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
   <div class="min-value numberVal">
     <input type="number" class="" min="1960" max="2020" value="1995" disabled>
@@ -242,8 +255,32 @@
   </div>
 </div>
   <div id="chart_div"></div>
-  
 </div>
+<div id="addForm">
+  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
+  <div class="min-value numberVal">
+    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
+  </div>
+  &nbsp;
+  <div class="range-slider">
+    <div class="progress"></div>
+    <span class="range-min-wrapper">
+      <input class="range-min" type="range" min="1960" max="2020" value="1995">
+      <!-- <span class="range-min-value">0</span> -->
+    </span>
+    <span class="range-max-wrapper">
+      <input class="range-max" type="range" min="1960" max="2020" value="2005">
+      <!-- <span class="range-max-value">100</span> -->
+    </span>
+  </div>
+  &nbsp;
+  <div class="max-value numberVal">
+    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
+  </div>
+</div>
+  <div id="chart_div"></div>
+</div>
+
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdwn-btn");
@@ -313,6 +350,21 @@ range.forEach((input) => {
    }
  });
 });
+
+$(function() {
+$("#showForm").on("click", function() {
+  $("#addForm").toggle();
+});
+$("#showForm2").on("click", function() {
+  $("#addForm2").toggle();
+});
+$("#showForm3").on("click", function() {
+  $("#addForm3").toggle();
+});
+
+
+});
+
 </script>
 </body>
 </html>
