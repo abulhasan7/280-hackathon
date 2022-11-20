@@ -200,9 +200,9 @@
         <a href="javascript:void(0)" class="dropbtn"
           style="margin-top: 30px; margin-right: 10px; border:1px solid black;">Countries</a>
         <div class="dropdown-content">
-          <a href="#">India</a>
-          <a href="#">China</a>
-          <a href="#">USA</a>
+          <a href="#" id="india-drpdown">India</a>
+          <a href="#" id="china-drpdown">China</a>
+          <a href="#" id="usa-drpdown">USA</a>
         </div>
       </li>
     </ul>
@@ -274,16 +274,22 @@
           disabled>
       </div>
     </div>
-    <div id="addForm" style="margin-left: 200px;width: 1000px;height: 300px;"></div>
-    <div id="addForm2" style="margin-left: 200px;width: 1000px;height: 300px;"></div>
-    <div id="addForm3" style="margin-left: 200px;width: 1000px;height: 300px;"></div>
-
+    <div style="margin-top: 20px; float:right;">
+    <textarea id="me-annotation-ta" cols="40" rows="5"></textarea>
+    <button value="Annotate" id="me-annotation-add" style="display:block; height: 40px;margin-left: 10px;">Add Annotation</button>
+    <div id="me-annotation" style="margin-left: 10px;"></div> 
+  </div>
+    <div>
+    <div id="addForm" style="margin-left: 150px;width: 1000px;height: 300px;"></div>
+    <div id="addForm2" style="margin-left: 150px;width: 1000px;height: 300px;"></div>
+    <div id="addForm3" style="margin-left: 150px;width: 1000px;height: 300px;"></div>
+  </div>
     <script>
       /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
       var dropdown = document.getElementsByClassName("dropdwn-btn");
       var i;
       var firstLoad = true;
-
+      var country = 'Usa';
       for (i = 0; i < dropdown.length; i++) {
         dropdown[i].addEventListener("click", function () {
           this.classList.toggle("active");
@@ -300,7 +306,14 @@
       // google.charts.setOnLoadCallback(drawBasic);
 
       async function drawBasic(fromYear = 1960, toYear = 2020) {
-        let resp = await getBackendData();
+        // let resp = JSON.parse(localStorage.getItem('me-data'));
+        // if(resp == null){
+        //   console.log('data null getting from backend')
+         let resp = await getBackendData();
+        //   localStorage.setItem('me-data',JSON.stringify(resp));
+        //   console.log('resp from backedn is', resp);
+
+        // }
         console.log('resp is', resp);
         let meGdpData = [];
         Object.keys(resp.gdp).forEach(elem => {
@@ -402,7 +415,7 @@
         chart.draw(data, options);
       }
       async function getBackendData() {
-        let response = await fetch('http://localhost:3000/me?country=Usa')
+        let response = await fetch('http://localhost:3000/me?country='+country)
         let data = await response.json();
         console.log('respnse form back', data)
         // localStorage.setItem('', JSON.stringify(data['Saudi Arabia']));
@@ -436,7 +449,6 @@
 
       document.getElementById("showForm").addEventListener('click', () => {
         var display = document.getElementById("addForm").style.display;
-        console.log('firstload', firstLoad)
         if (display == 'none' || display == "") {
             drawBasic();
           document.getElementById("addForm").style.display = 'block';
@@ -449,7 +461,6 @@
 
       document.getElementById("showForm2").addEventListener('click', () => {
         var display = document.getElementById("addForm2").style.display;
-        console.log('firstload', firstLoad)
         if (display == 'none' || display == "") {
             drawBasic();
           document.getElementById("addForm2").style.display = 'block';
@@ -462,7 +473,6 @@
 
       document.getElementById("showForm3").addEventListener('click', () => {
         var display = document.getElementById("addForm3").style.display;
-        console.log('firstload', firstLoad)
         if (display == 'none' || display == "") {
             drawBasic();
           document.getElementById("addForm3").style.display = 'block';
@@ -476,6 +486,37 @@
       document.getElementById("min-value-number").addEventListener('change', (event) => {
         console.log('event.target.value', event.target.value)
       })
+      document.getElementById("india-drpdown").addEventListener('click', (event) => {
+        country = 'India';
+        drawBasic();
+      })
+      document.getElementById("china-drpdown").addEventListener('click', (event) => {
+        country = 'China';
+        drawBasic();
+      })
+      document.getElementById("usa-drpdown").addEventListener('click', (event) => {
+        country = 'Usa';
+        drawBasic();
+      })
+      document.getElementById("me-annotation-add").addEventListener('click', (event) => {
+        let newa  = document.getElementById("me-annotation-ta").value;
+        let annotation = JSON.parse(localStorage.getItem('me-annotation'))||[];
+        annotation.push(newa);
+        localStorage.setItem('me-annotation',JSON.stringify(annotation));
+        document.getElementById("me-annotation-ta").value = "";
+        printAnnotation();
+      })
+
+      function printAnnotation(){
+        let annotation = JSON.parse(localStorage.getItem('me-annotation'))|| "";
+        let output = "Annotations Added:";
+        let index = 1;
+        for(let ann of annotation){
+          output+=`\n${index++}. ${ann}`
+        }
+        console.log('output is ',output);
+        document.getElementById("me-annotation").innerText = output;
+      }
     </script>
 </body>
 
