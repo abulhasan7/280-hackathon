@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
-     #map {
-        height: 600px;
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-       }
-       #map2 {
-        height: 600px;
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-       }
+    #container{
+            display: flex;
+        }
     body {
     background-color:white;
   }
@@ -107,7 +101,9 @@
     padding: 0px 10px;
     margin-top: -10em;
   }
-
+  
+  
+  
   /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
   .dropdwn-container {
     display: none;
@@ -120,6 +116,7 @@
     float: right;
     padding-right: 8px;
   }
+
   </style>
 </head>
 
@@ -128,7 +125,7 @@
 <div style="border:1px solid black;">
 <ul>
   <li><a href="index.html"> <img src="logo.jpg" width="100" height="80"></a></li>
-  <li style="margin-top:40px;margin-left:500px">Speciality Crops- MANGOES</li>
+  <li style="margin-top:40px;margin-left:400px">FOOD SECURITY TIME SERIES DASHBOARD</li>
   <li class="dropdown" style="float:right">
     <a href="javascript:void(0)" class="dropbtn" style="margin-top: 30px; margin-right: 10px; border:1px solid black;">Countries</a>
     <div class="dropdown-content">
@@ -145,9 +142,9 @@
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdwn-container">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+    <a id="showForm" href="#">Link 1</a>
+    <a id="showForm2" href="#">Link 2</a>
+    <a id="showForm3" href="#">Link 3</a>
   </div>
   <button class="dropdwn-btn">Agricultural
         <i class="fa fa-caret-down"></i>
@@ -184,17 +181,26 @@
   
 </div>
 <div class="main">
-    <div style="display: flex; flex-direction:row">
-        <div style="display: flex; flex-direction:column"><h3>Philippines, the major areas are Pangasinan in Luzon, Central Visas, 
-            Davao Region and  Mindanao.</h3></div>
-          <div style="display: flex; flex-direction:column"><h3> The major growing regions are 
-            Andhra Pradesh </h3></div>
-      </div>
-  <div style="display: flex; flex-direction:row">
-    <div id="map" style="display: flex; flex-direction:column"></div>
-    <div id="map2" style="display: flex; flex-direction:column" ></div>
-</div>
-</div>
+  <label>Country</label>
+    <select id="country-select">
+        <option value="Egypt">Egypt</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+    </select>
+    <label>Crop</label>
+    <select id="crop-select">
+        <option value="Wheat">Wheat</option>
+        <option value="Rice">Rice</option>
+    </select>
+    <label>Year</label>
+    <select id="year-select">
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+    </select>
+    <div id="container">
+        <div id="sankey_basic" style="width: 600px; height: 300px;"></div>
+        <div id="pie_chart" style="width: 400px; height: 300px;"></div>
+    </div>
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
@@ -213,49 +219,78 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
    });
  }
 
- function initMap() { 
-        var uluru = [[{lat: 15.864493162273222, lng: 120.31636694869947}, 10000000],
-                     [{lat: 11.135818013692159, lng: 122.41573463088302}, 3000000],
-                     [{lat: 9.903654857312004, lng: 123.0446848074065}, 3000000],
-                     [{lat: 7.3676977261282826, lng: 125.38921833548852}, 3000000],
-                     [{lat: 7.170958992463243, lng: 125.08184316823056}, 3000000],
-                    ];
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru[3][0]
-        });
-        var uluru2 = [[{lat: 15.73954245436821, lng: 79.55709039090259}, 10000000],
-        [{lat:  17.686815 , lng:  83.218483}, 10000000],]
-        var map2 = new google.maps.Map(document.getElementById('map2'), {
-          zoom: 6,
-          center: uluru2[0][0]
-        });
-        var marker = "";
-        for(var i=0;i<4;i++){
-          marker = new google.maps.Marker({
-            position: uluru[i][0],
-            animation: google.maps.Animation.DROP,
-            map: map
-          });
-          if (i<11){
-            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-          }
+ google.charts.load('current', { 'packages': ['sankey', 'corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart(year = 2020, country = 'Egypt', crop = 'Wheat') {
+
+            var sanKeyData = new google.visualization.DataTable();
+            sanKeyData.addColumn('string', 'Importing Country');
+            sanKeyData.addColumn('string', 'Exporting Country');
+            sanKeyData.addColumn('number', 'Value');
+
+            let importsData = getImportData(year, country, crop);
+            sanKeyData.addRows(importsData[0]);
+            var pieData = google.visualization.arrayToDataTable(importsData[1]);
+
+            // Sets chart options.
+            var options = {
+                width: 600,
+            };
+
+            // Instantiates and draws our chart, passing in some options.
+            var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+            chart.draw(sanKeyData, options);
+            var piechart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+            piechart.draw(pieData, { width: 400, title: `${crop} Import Quantity(tonnes), ${year}` });
         }
-        var marker2 = "";
-        for(var i=0;i<4;i++){
-          marker2 = new google.maps.Marker({
-            position: uluru2[i][0],
-            animation: google.maps.Animation.DROP,
-            map: map2
-          });
-          if (i<11){
-            marker2.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-          }
+
+        function getImportData(year, country, crop) {
+            let data = localStorage.getItem(country);
+            if (data == null) {
+                getImportsFromApi(country).then(response => filterImportsData(year, country, crop, data));
+            } else {
+                return filterImportsData(year, country, crop, JSON.parse(data));
+            }
+
         }
-      }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDcPwALh103uGlDrdPVD2xcKmA7BY5Weo&callback=initMap">
+
+        function filterImportsData(year, country, crop, data) {
+            console.log('input param is ', year, country, crop)
+            console.log('data is', data)
+            let finalSankeyData = [];
+            let finalPieData = [['Country', 'Imports']];
+            data.filter(elem => elem["Year"] == year && elem['Item'] == crop).sort(elem => elem["Value"]).forEach(elem => { finalSankeyData.push([country, elem['Partner Countries'], elem['Value']]); finalPieData.push([elem['Partner Countries'], elem['Value']]) });
+            console.log('finalData is ', finalSankeyData);
+            return [finalSankeyData.slice(0, 5), finalPieData];
+        }
+
+        async function getImportsFromApi(country) {
+            let response = await fetch('http://localhost:3000/imports/')
+            let data = await response.json();
+            console.log('respnse form back', data)
+            localStorage.setItem('Saudi Arabia', JSON.stringify(data['Saudi Arabia']));
+            localStorage.setItem('Egypt', JSON.stringify(data.Egypt));
+            return data[country];
+        }
+        document.getElementById('crop-select').addEventListener('change', (event) => {
+            let year = document.getElementById('year-select').value;
+            let country = document.getElementById('country-select').value;
+            drawChart(year, country, event.target.value)
+        })
+
+        document.getElementById('country-select').addEventListener('change', (event) => {
+            let year = document.getElementById('year-select').value;
+            let crop = document.getElementById('crop-select').value;
+            drawChart(year, event.target.value, crop)
+        })
+
+        document.getElementById('year-select').addEventListener('change', (event) => {
+            let country = document.getElementById('country-select').value;
+            let crop = document.getElementById('crop-select').value;
+            drawChart(event.target.value, country, crop)
+        })
+
+
 </script>
 </body>
 </html>

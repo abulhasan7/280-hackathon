@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+    body {
+    background-color:white;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a, .dropbtn {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover, .dropdown:hover .dropbtn {
+    background-color: white;
+  }
+  
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Fixed sidenav, full height */
+  .sidenav {
+    width: 200px;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a, .dropdwn-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdwn-btn:hover {
+    color: black;
+  }
+  
+  .main {
+    margin-left: 250px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+    margin-top: -13em;
+  }
+  
+  
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdwn-container {
+    display: none;
+    background-color: white;
+    padding-left: 8px;
+  }
+  
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+
+  </style>
+</head>
+
+<body>
+  
+<div style="border:1px solid black;">
+<ul>
+  <li><a href="index.html"> <img src="logo.jpg" width="100" height="80"></a></li>
+  <li style="margin-top:40px;margin-left:400px">FOOD SECURITY TIME SERIES DASHBOARD</li>
+  <li class="dropdown" style="float:right">
+    <a href="javascript:void(0)" class="dropbtn" style="margin-top: 30px; margin-right: 10px; border:1px solid black;">Countries</a>
+    <div class="dropdown-content">
+      <a href="#">India</a>
+      <a href="#">China</a>
+      <a href="#">USA</a>
+    </div>
+  </li>
+</ul>
+</div>
+
+<div class="sidenav" style="border:1px solid black;">
+  <button onclick="window.location.href='index.html'" class="dropdwn-btn"> Macroeconomics
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdwn-container">
+    <a id="showForm" href="#">Link 1</a>
+    <a id="showForm2" href="#">Link 2</a>
+    <a id="showForm3" href="#">Link 3</a>
+  </div>
+  <button class="dropdwn-btn">Agricultural
+        <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdwn-container">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+  <button class="dropdwn-btn"> Debt Services
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdwn-container">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+  <button class="dropdwn-btn">Crops
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdwn-container">
+    <a href="map1.html">Bananas</a>
+    <a href="map2.html">Mangoes</a>
+    <a href="map3.html">Walnuts</a>
+  </div>
+  <button onclick="window.location.href='imports1.html'" class="dropdwn-btn">Imports</button>
+  <button class="dropdwn-btn">Yield
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdwn-container">
+    <a href="yield.html">Iran's Yield</a>
+    <a href="yield2.html">Phillipine's Yield</a>
+  </div>
+  
+</div>
+<div class="main">
+  <h2 style="margin-left: 400px;">Iran's Yield</h2>
+  <div style="display: flex; flex-direction:row; margin-left: 150px;">
+    <div id="curve_chart" style="display: flex; flex-direction:column; width: 400px; height: 500px" ></div>
+    <div id="curve_chart2" style="display: flex; flex-direction:column; width: 500px; height: 500px" ></div>
+</div>
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdwn-btn");
+ var i;
+ 
+ for (i = 0; i < dropdown.length; i++) {
+   dropdown[i].addEventListener("click", function() {
+     this.classList.toggle("active");
+     var dropdownContent = this.nextElementSibling;
+     if (dropdownContent.style.display === "block") {
+       dropdownContent.style.display = "none";
+     } else {
+       dropdownContent.style.display = "block";
+     }
+   });
+ }
+ google.charts.load('current', {'packages':['corechart']});
+ google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Area Harvested', 'Production (tonnes)'],
+          ['1961',  4400,      8000],
+          ['1962',  4400,      8000],
+          ['1963',  2500,       3000],
+          ['1964',  2500,     3000],
+          ['1965',  2500,      4000],
+          ['1966',  2500,      3000],
+          ['1967',  2500,       4000],
+          ['1968',  3000,     6000],
+          ['1969',  3000,      6000],
+          ['1970',  2000,      4000],
+          ['1971',  1900,       3500],
+          ['1972',  1800,     3200],
+          ['1973',  1700,      3000],
+          ['1974',  1600,      3300],
+          ['1975',  1500,       3100],
+          ['1976',  1500,     2800],
+          ['1977',  1500,      3250],
+          ['1978',  1500,      3000],
+          ['1979',  1500,       3000],
+          ['1980',  2200,      6000],
+          ['1981',  4800,      13000],
+          ['1982',  6283,     18197],
+          ['1983',  6733,       21612],
+          ['1984',  7468,     22996],
+          ['1985',  7840,      31422],
+          ['1986',  11347,       40930],
+          ['1987',  8951,     32957],
+          ['1988',  10544,      37821],
+          ['1989',  12143,      64009],
+          ['1990',  15025,     44482],
+          ['1991',  17973,      64486],
+          ['1992',  22208,      71237],
+          ['1993',  25976,       110819],
+          ['1994',  28975,      117218],
+          ['1995',  32287,      119218],
+          ['1996',  35781,      113185],
+          ['1997',  41766,       124196],
+          ['1998',  45152,      145145],
+          ['1999',  50161,      142906],
+         
+          ['2000',  51971,      129276],
+          ['2001',  61795,      162838],
+          ['2002',  67194,      177673],
+          ['2003',  74979,     204883],
+          ['2004',  88888,      168320],
+          ['2005',  96697,      247864],
+          ['2006',  146010,      367445],
+          ['2007',  119687,     299789],
+          ['2008',  115919,     260355],
+          ['2009',  116794,       279742],
+          ['2010',  117603,     268135],
+          ['2011',  112855,      280275],
+          ['2012',  124843,       284421],
+          ['2013',  109759,     222610],
+          ['2014',  141019,      403158],
+          ['2015',  142000,      420000],
+          ['2016',  71425,       349192],
+          ['2017',  53952,      393598],
+          ['2018',  43946,      304040],
+          ['2019',  44780,       321074],
+          ['2020',  59920,      356666],
+          
+        ]);
+
+        var options = {
+          title: 'Area harvested (ha)',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+
+        var data2 = google.visualization.arrayToDataTable([
+          ['Year', 'Area Harvested', 'Yield (hg/ha)'],
+          ['1961',  4400,      18182],
+          ['1962',  4400,     18182],
+          ['1963',  2500,       12000],
+          ['1964',  2500,     12000],
+          ['1965',  2500,     16000],
+          ['1966',  2500,      12000],
+          ['1967',  2500,      16000],
+          ['1968',  3000,     20000],
+          ['1969',  3000,     20000],
+          ['1970',  2000,     20000],
+          ['1971',  1900,     18421],
+          ['1972',  1800,     17778],
+          ['1973',  1700,      17647],
+          ['1974',  1600,      20625],
+          ['1975',  1500,      20667],
+          ['1976',  1500,    18667],
+          ['1977',  1500,     21667],
+          ['1978',  1500,      20000],
+          ['1979',  1500,       20000],
+          ['1980',  2200,      27273],
+          ['1981',  4800,      27083],
+          ['1982',  6283,     28962],
+          ['1983',  6733,       32099],
+          ['1984',  7468,     30793],
+          ['1985',  7840,      40079],
+          ['1986',  11347,       36071],
+          ['1987',  8951,     36819],
+          ['1988',  10544,      35870],
+          ['1989',  12143,      52713],
+          ['1990',  15025,     29605],
+          ['1991',  17973,      35879],
+          ['1992',  22208,      32077],
+          ['1993',  25976,       42662],
+          ['1994',  28975,     40455],
+          ['1995',  32287,      36924],
+          ['1996',  35781,     31633],
+          ['1997',  41766,       29736],
+          ['1998',  45152,      32146],
+          ['1999',  50161,      28489],
+         
+          ['2000',  51971,      24875],
+          ['2001',  61795,      26351],
+          ['2002',  67194,      26442],
+          ['2003',  74979,     27325],
+          ['2004',  88888,      18936],
+          ['2005',  96697,      25633],
+          ['2006',  146010,      25166],
+          ['2007',  119687,     25048],
+          ['2008',  115919,     22460],
+          ['2009',  116794,      23952],
+          ['2010',  117603,     22800],
+          ['2011',  112855,      24835],
+          ['2012',  124843,       22782],
+          ['2013',  109759,     20282],
+          ['2014',  141019,      28589],
+          ['2015',  142000,      29577],
+          ['2016',  71425,       48889],
+          ['2017',  53952,      72953],
+          ['2018',  43946,      69185],
+          ['2019',  44780,       71700],
+          ['2020',  59920,      59524],
+          
+        ]);
+
+        var options2 = {
+          title: 'Area harvested (ha)',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+        chart2.draw(data2, options2);
+    }
+</script>
+</body>
+</html>
