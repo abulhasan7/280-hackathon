@@ -222,7 +222,7 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
                      [{lat: 7.170958992463243, lng: 125.08184316823056}, 3000000],
                     ];
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 5,
           center: uluru[3][0]
         });
         var uluru2 = [[{lat: 15.73954245436821, lng: 79.55709039090259}, 10000000],
@@ -243,7 +243,7 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
           }
         }
         var marker2 = "";
-        for(var i=0;i<4;i++){
+        for(var i=0;i<2;i++){
           marker2 = new google.maps.Marker({
             position: uluru2[i][0],
             animation: google.maps.Animation.DROP,
