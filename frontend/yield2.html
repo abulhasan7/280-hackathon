@@ -269,7 +269,7 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
         ]);
 
         var options = {
-          title: 'Area harvested (ha)',
+          title: 'Area harvested (ha) vs Production (tonnes)',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -279,7 +279,7 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
         chart.draw(data, options);
 
         var data2 = google.visualization.arrayToDataTable([
-          ['Year', 'Yield', 'Production (tonnes)'],
+          ['Year', 'Area harvested', 'Yield(hg/ha)'],
           ['1961',  38912,      66150],
           ['1962',  38889,      70000],
           ['1963',  38458,       92300],
@@ -345,7 +345,7 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
         ]);
 
         var options2 = {
-          title: 'Area harvested (ha)',
+          title: 'Area harvested (ha) vs Yield (hg/ha)',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
