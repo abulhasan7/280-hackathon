@@ -97,7 +97,7 @@ router.get('/debt-total-debts', async function(req, res, next) {
 router.get('/imports', async function(req, res, next) {
   const collection = db.collection('imports-exports');
   const a = await collection.find({},{projection:{_id:0}}).toArray()
-  res.json(a)
+  res.json(a[0])
   console.log(a);
 });
 
