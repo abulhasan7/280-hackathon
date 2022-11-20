@@ -221,17 +221,17 @@
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdwn-container">
-      <a id="showForm" href="#">Link 1</a>
-      <a id="showForm2" href="#">Link 2</a>
-      <a id="showForm3" href="#">Link 3</a>
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
     </div>
     <button class="dropdwn-btn"> Debt Services
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdwn-container">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a id="showForm" href="#">Link 1</a>
+      <a id="showForm2" href="#">Link 2</a>
+      <a id="showForm3" href="#">Link 3</a>
     </div>
     <button class="dropdwn-btn">Crops
       <i class="fa fa-caret-down"></i>
@@ -251,7 +251,7 @@
     </div>
   </div>
   <div class="main">
-    <h2 style="margin-left: 500px;margin-top: 50px;">AGRICULTURAL</h2>
+    <h2 style="margin-left: 500px; margin-top: 50px;">DEBT SERVICES</h2>
     <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
       <div class="min-value numberVal">
         <input type="number" id="min-value-number" class="" min="1960" max="2020" value="1960" disabled>
@@ -275,9 +275,9 @@
       </div>
     </div>
     <div style="margin-top: 20px; float:right;">
-    <textarea id="agri-annotation-ta" cols="40" rows="5"></textarea>
-    <button value="Annotate" id="agri-annotation-add" style="display:block; height: 40px;margin-left: 10px;">Add Annotation</button>
-    <div id="agri-annotation" style="margin-left: 10px;"></div> 
+    <textarea id="debt-annotation-ta" cols="40" rows="5"></textarea>
+    <button value="Annotate" id="debt-annotation-add" style="display:block; height: 40px;margin-left: 10px;">Add Annotation</button>
+    <div id="debt-annotation" style="margin-left: 10px;"></div> 
   </div>
     <div>
     <div id="addForm" style="margin-left: 50px;width: 1200px;height: 300px;"></div>
@@ -315,44 +315,44 @@
 
         // }
         console.log('resp is', resp);
-        let agriGdpData = [];
-        Object.keys(resp.gdp).forEach(elem => {
+        let reserves = [];
+        Object.keys(resp.reserves).forEach(elem => {
           let intElem = parseInt(elem);
           if (intElem >= fromYear && parseInt(elem) <= toYear) {
-            agriGdpData.push([elem, parseInt(resp.gdp[elem]) || 0])
+            reserves.push([elem, parseInt(resp.reserves[elem]) || 0])
           }
         });
-        console.log('agriGdpData', agriGdpData)
-        drawAgriGdp(agriGdpData);
-        let agriFertilizersData = [];
-        Object.keys(resp.fertilizers).forEach(elem => {
+        console.log('reserves', reserves)
+        drawDebtsReserves(reserves);
+        let gni = [];
+        Object.keys(resp.gni).forEach(elem => {
           let intElem = parseInt(elem);
           if (intElem >= fromYear && parseInt(elem) <= toYear) {
-            agriFertilizersData.push([elem, parseInt(resp.fertilizers[elem]) || 0])
+            gni.push([elem, parseInt(resp.gni[elem]) || 0])
           }
         });
-        drawAgriFertilizers(agriFertilizersData);
+        drawDebtsGni(gni);
 
-        let agriFertilizersProdData = [];
-        Object.keys(resp.fertilizersprod).forEach(elem => {
+        let totaldebts = [];
+        Object.keys(resp.totaldebts).forEach(elem => {
           let intElem = parseInt(elem);
           if (intElem >= fromYear && parseInt(elem) <= toYear) {
-            agriFertilizersProdData.push([elem, parseInt(resp.fertilizersprod[elem]) || 0])
+            totaldebts.push([elem, parseInt(resp.totaldebts[elem]) || 0])
           }
         });
-        drawAgriFertilizersProd(agriFertilizersProdData);
+        drawDebtsTotalDebts(totaldebts);
         firstLoad = false;
       }
-      function drawAgriGdp(gdpData) {
+      function drawDebtsReserves(gdpData) {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Year');
-        data.addColumn('number', '% GDP');
+        data.addColumn('number', 'Total reserves (includes gold, current US$)	');
         console.log('data is', gdpData)
         data.addRows(gdpData);
         data.sort(({ column: 0, desc: false }));
 
         var options = {
-          title: 'Contribution of Agri(%GDP)',
+          title: 'Total reserves (includes gold, current US$)	',
           curveType: 'function',
           interpolateNulls: true,
           hAxis: {
@@ -369,15 +369,15 @@
 
         chart.draw(data, options);
       }
-      function drawAgriFertilizers(inflowData) {
+      function drawDebtsGni(inflowData) {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Year');
-        data.addColumn('number', 'kilograms per hectare of arable land');
+        data.addColumn('number', 'GNI (current US$)');
         console.log('inflowdata is', inflowData)
         data.addRows(inflowData);
 
         var options = {
-          title: 'Fertilizer consumption (kilograms per hectare of arable land)',
+          title: 'GNI (current US$)',
           // curveType: 'function',
           // interpolateNulls: true,
           hAxis: {
@@ -390,16 +390,16 @@
 
         chart.draw(data, options);
       }
-      function drawAgriFertilizersProd(outflowData) {
+      function drawDebtsTotalDebts(outflowData) {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Year');
-        data.addColumn('number', 'Fertilizer consumption (% of fertilizer production)');
+        data.addColumn('number', 'Total debt service (% of GNI)');
         console.log('data is', outflowData)
         data.addRows(outflowData);
         data.sort(({ column: 0, desc: false }));
 
         var options = {
-          title: 'Fertilizer consumption (% of fertilizer production)',
+          title: 'Total debt service (% of GNI)',
           curveType: 'function',
           interpolateNulls: true,
           hAxis: {
@@ -414,7 +414,7 @@
         chart.draw(data, options);
       }
       async function getBackendData() {
-        let response = await fetch('http://localhost:3000/agri?country='+country)
+        let response = await fetch('http://localhost:3000/debt?country='+country)
         let data = await response.json();
         console.log('respnse form back', data)
         // localStorage.setItem('', JSON.stringify(data['Saudi Arabia']));
@@ -497,24 +497,24 @@
         country = 'Usa';
         drawBasic();
       })
-      document.getElementById("agri-annotation-add").addEventListener('click', (event) => {
-        let newa  = document.getElementById("agri-annotation-ta").value;
-        let annotation = JSON.parse(localStorage.getItem('agri-annotation'))||[];
+      document.getElementById("debt-annotation-add").addEventListener('click', (event) => {
+        let newa  = document.getElementById("debt-annotation-ta").value;
+        let annotation = JSON.parse(localStorage.getItem('debt-annotation'))||[];
         annotation.push(newa);
-        localStorage.setItem('agri-annotation',JSON.stringify(annotation));
-        document.getElementById("agri-annotation-ta").value = "";
+        localStorage.setItem('debt-annotation',JSON.stringify(annotation));
+        document.getElementById("debt-annotation-ta").value = "";
         printAnnotation();
       })
       printAnnotation();
       function printAnnotation(){
-        let annotation = JSON.parse(localStorage.getItem('agri-annotation'))|| [];
+        let annotation = JSON.parse(localStorage.getItem('debt-annotation'))|| [];
         let output = "Annotations Added:";
         let index = 1;
         for(let ann of annotation){
           output+=`\n${index++}. ${ann}`
         }
         console.log('output is ',output);
-        document.getElementById("agri-annotation").innerText = output;
+        document.getElementById("debt-annotation").innerText = output;
       }
     </script>
 </body>

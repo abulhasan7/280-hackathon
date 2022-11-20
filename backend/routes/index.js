@@ -40,27 +40,13 @@ router.get('/agri', async function (req, res, next) {
 });
 
 ///
-router.get('/debt-gni', async function (req, res, next) {
+router.get('/debt', async function (req, res, next) {
   const collection = db.collection('debt-gni');
+  const collection2 = db.collection('debt-reserves');
+  const collection3 = db.collection('debt-total-debts');
   const country = req.query.country;
-  const a = await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()
-  res.json(a[0])
-  console.log(a);
-});
-
-router.get('/debt-reserves', async function (req, res, next) {
-  const collection = db.collection('debt-reserves');
-  const country = req.query.country;
-  const a = await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()
-  res.json(a[0])
-  console.log(a);
-});
-
-router.get('/debt-total-debts', async function (req, res, next) {
-  const collection = db.collection('debt-total-debts');
-  const country = req.query.country;
-  const a = await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()
-  res.json(a[0])
+  const [a, b, c] = [await collection.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray(), await collection2.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray(), await collection3.find({ 'country': country }, { projection: { _id: 0, country: 0 } }).toArray()];
+  res.json({ gni: a[0], reserves: b[0], totaldebts: c[0] });
   console.log(a);
 });
 
