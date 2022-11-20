@@ -5,6 +5,18 @@
 <head>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
+     #map {
+        height: 600px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+       }
+       #map2 {
+        height: 600px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+       }
     body {
     background-color:white;
   }
@@ -95,9 +107,7 @@
     padding: 0px 10px;
     margin-top: -13em;
   }
-  
-  
-  
+
   /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
   .dropdwn-container {
     display: none;
@@ -110,57 +120,6 @@
     float: right;
     padding-right: 8px;
   }
-  
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-  }
-  .range-slider {
-    position: relative;
-    width: 714px;
-    height: 10px;
-    border-radius: 15px;  background: transparent linear-gradient(90deg, #5f822d 0%, #a5af33 100%) 0% 0%
-  
-      no-repeat padding-box;
-  }
-  .range-slider .progress {
-    position: absolute;
-    left: 25%;
-    right: 0%;
-    height: 100%;
-    border-radius: 15px;
-    background: transparent linear-gradient(90deg, #e4e7c1 0%, #d39892 100%) 0% 0%
-      no-repeat padding-box;
-  }
-  .range-slider input[type="range"] {
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    -webkit-appearance: none;
-    pointer-events: none;
-    background: none;
-    outline: none;
-  }
-  .range-slider .range-min::-webkit-slider-thumb {
-    pointer-events: auto;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #fcfcfc 0% 0% no-repeat padding-box;
-    border: 2px solid black;
-    border-radius: 20px;
-    opacity: 1;
-  }
-  .range-slider .range-max::-webkit-slider-thumb {
-    pointer-events: auto;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #fcfcfc 0% 0% no-repeat padding-box;
-    border: 2px solid black;
-    border-radius: 20px;
-    opacity: 1;
-  }
   </style>
 </head>
 
@@ -169,7 +128,7 @@
 <div style="border:1px solid black;">
 <ul>
   <li><a href="#home"> <img src="logo.jpg" width="100" height="80"></a></li>
-  <li style="margin-top:40px;margin-left:400px">FOOD SECURITY TIME SERIES DASHBOARD</li>
+  <li style="margin-top:40px;margin-left:500px">Speciality Crops- BANANAS</li>
   <li class="dropdown" style="float:right">
     <a href="javascript:void(0)" class="dropbtn" style="margin-top: 30px; margin-right: 10px; border:1px solid black;">Countries</a>
     <div class="dropdown-content">
@@ -219,31 +178,20 @@
   
 </div>
 <div class="main">
-  <h2 style="margin-left: 500px;">CHARTS</h2>
-  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
-  <div class="min-value numberVal">
-    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
+  <div style="display: flex; flex-direction:row">
+    <div style="display: flex; flex-direction:column"><h3>Most bananas are grown in the south, mainly in Guandong, 
+      Guangxi, Yunnan, and Hainan</h3></div>
+      <div style="display: flex; flex-direction:column"><h3>The major growing regions are 
+        Lampung, East Java, and West 
+        Java. Indonesian Papua in the 
+        east </h3></div>
   </div>
-  &nbsp;
-  <div class="range-slider">
-    <div class="progress"></div>
-    <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1960" max="2020" value="1995">
-      <!-- <span class="range-min-value">0</span> -->
-    </span>
-    <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1960" max="2020" value="2005">
-      <!-- <span class="range-max-value">100</span> -->
-    </span>
-  </div>
-  &nbsp;
-  <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
-  </div>
+  <div style="display: flex; flex-direction:row">
+    <div id="map" style="display: flex; flex-direction:column"></div>
+    <div id="map2" style="display: flex; flex-direction:column" ></div>
 </div>
-  <div id="chart_div"></div>
-  
 </div>
+
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdwn-btn");
@@ -261,58 +209,52 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
    });
  }
 
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawBasic);
-
-function drawBasic() {
-
-     var data = new google.visualization.DataTable();
-     data.addColumn('number', 'Year');
-     data.addColumn('number', 'GDP');
-
-     data.addRows([
-      [2016,20],[1999,16],[2020,89],[2008,98],[2001,60],[2015,28]
-     ]);
-     data.sort(({column: 0, desc:false}));
-
-     var options = {
-       hAxis: {
-         title: 'Year'
-       },
-       vAxis: {
-         title: 'GDP'
-       }
-     };
-
-     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-     chart.draw(data, options);
-   }
-
-const range = document.querySelectorAll(".range-slider span input");
-progress = document.querySelector(".range-slider .progress");
-let gap = 1;
-const inputValue = document.querySelectorAll(".numberVal input");
-
-range.forEach((input) => {
- input.addEventListener("input", (e) => {
-   let minRange = parseInt(range[0].value);
-   let maxRange = parseInt(range[1].value);
-
-   if (maxRange - minRange < gap) {
-     if (e.target.className === "range-min") {
-       range[0].value = maxRange - gap;
-     } else {
-       range[1].value = minRange + gap;
-     }
-   } else {
-     progress.style.left = (minRange / range[0].max) * 100 + "%";
-     progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
-     inputValue[0].value = minRange;
-     inputValue[1].value = maxRange;
-   }
- });
-});
+ function initMap() { 
+        var uluru = [[{lat: 23.933885405138998, lng: 114.98209710357274}, 10000000],
+                     [{lat: 24.198241941644106, lng: 108.93264100253775}, 3000000],
+                     [{lat: 24.928409817454682, lng: 101.4313389239342}, 3000000],
+                     [{lat: 19.184938902337038, lng: 109.61677100410732}, 3000000],
+                      ];
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru[3][0]
+        });
+        var uluru2 = [[{lat: -4.570624198719219, lng: 105.0052836627364}, 10000000],
+                     [{lat: -7.585149933343914, lng: 112.12902452797509}, 3000000],
+                     [{lat: -6.566488451916051, lng: 107.37898244876669}, 3000000],
+                     [{lat: -3.105547250311509, lng: 138.33983119591778}, 3000000],
+                     
+                    ];
+        var map2 = new google.maps.Map(document.getElementById('map2'), {
+          zoom: 3,
+          center: uluru2[3][0]
+        });
+        var marker = "";
+        for(var i=0;i<4;i++){
+          marker = new google.maps.Marker({
+            position: uluru[i][0],
+            animation: google.maps.Animation.DROP,
+            map: map
+          });
+          if (i<11){
+            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+          }
+        }
+        var marker2 = "";
+        for(var i=0;i<4;i++){
+          marker2 = new google.maps.Marker({
+            position: uluru2[i][0],
+            animation: google.maps.Animation.DROP,
+            map: map2
+          });
+          if (i<11){
+            marker2.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+          }
+        }
+      }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDcPwALh103uGlDrdPVD2xcKmA7BY5Weo&callback=initMap">
 </script>
 </body>
 </html>
