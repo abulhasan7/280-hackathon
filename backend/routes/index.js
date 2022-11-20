@@ -19,9 +19,10 @@ const dbName = '28-hackathon';
 
 /* GET home page. */
 router.get('/me-gdp', async function(req, res, next) {
-  const collection = db.collection('me-gsp');
-  const country = req.query('country');
+  const collection = db.collection('me-gdp');
+  const country = req.query.country;
   const a = await collection.findOne({'country':country})
+  res.json(a)
   console.log(a);
 
 });
