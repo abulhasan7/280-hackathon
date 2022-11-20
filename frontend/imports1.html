@@ -277,7 +277,7 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
         }
 
         async function getImportsFromApi(country) {
-            let response = await fetch('http://localhost:3000/imports/')
+            let response = await fetch('http://ec2-13-52-185-22.us-west-1.compute.amazonaws.com:3000/imports/')
             let data = await response.json();
             console.log('respnse form back', data)
             localStorage.setItem('Saudi Arabia', JSON.stringify(data['Saudi Arabia']));
