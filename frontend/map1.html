@@ -133,10 +133,11 @@
       <li class="dropdown" style="float:right">
         <a href="javascript:void(0)" class="dropbtn" style="margin-top: 30px; margin-right: 10px; border:1px solid black; border-radius: 10px;">Countries <i style="margin-left: 50px;"class="fa fa-caret-down"></i></a>
         <div class="dropdown-content">
-          <a href="#">India</a>
-          <a href="#">China</a>
-          <a href="#">USA</a>
+          <a href="#" id="india-drpdown">India</a>
+          <a href="#" id="china-drpdown">China</a>
+          <a href="#" id="usa-drpdown">USA</a>
         </div>
+        <li class="dropdown" style="float:right; margin: 20px;"><img id="country_image" src="flag_usa.jpg" width="80" height="60"></li>
       </li>
     </ul>
     </div>
@@ -215,6 +216,19 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
      }
    });
  }
+
+ document.getElementById("india-drpdown").addEventListener('click', (event) => {
+        country = 'India';
+        document.getElementById("country_image").src="flag_india.jpg";
+      })
+      document.getElementById("china-drpdown").addEventListener('click', (event) => {
+        country = 'China';
+        document.getElementById("country_image").src="flag_china.jpg";
+      })
+      document.getElementById("usa-drpdown").addEventListener('click', (event) => {
+        country = 'Usa';
+        document.getElementById("country_image").src="flag_usa.jpg";
+      })
 
  function initMap() { 
         var uluru = [[{lat: 23.933885405138998, lng: 114.98209710357274}, 10000000],
