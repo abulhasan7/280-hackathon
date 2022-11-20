@@ -222,23 +222,23 @@
   <h2 style="margin-left: 500px;">CHARTS</h2>
   <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
   <div class="min-value numberVal">
-    <input type="number" class="" min="1990" max="2020" value="1995" disabled>
+    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
   </div>
   &nbsp;
   <div class="range-slider">
     <div class="progress"></div>
     <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1990" max="2020" value="1995">
+      <input class="range-min" type="range" min="1960" max="2020" value="1995">
       <!-- <span class="range-min-value">0</span> -->
     </span>
     <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1990" max="2020" value="2005">
+      <input class="range-max" type="range" min="1960" max="2020" value="2005">
       <!-- <span class="range-max-value">100</span> -->
     </span>
   </div>
   &nbsp;
   <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1990" max="2020" value="2005" disabled>
+    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
   </div>
 </div>
   <div id="chart_div"></div>
@@ -291,7 +291,7 @@ function drawBasic() {
 
 const range = document.querySelectorAll(".range-slider span input");
 progress = document.querySelector(".range-slider .progress");
-let gap = 0.1;
+let gap = 1;
 const inputValue = document.querySelectorAll(".numberVal input");
 
 range.forEach((input) => {
