@@ -1,194 +1,1278 @@
-[
-  {
-    "Series Name": "Total debt service (% of GNI)",
-    "Series Code": "DT.TDS.DECT.GN.ZS",
-    "Country Name": "United States",
-    "Country Code": "USA",
-    "1960 [YR1960]": "",
-    "1961 [YR1961]": "",
-    "1962 [YR1962]": "",
-    "1963 [YR1963]": "",
-    "1964 [YR1964]": "",
-    "1965 [YR1965]": "",
-    "1966 [YR1966]": "",
-    "1967 [YR1967]": "",
-    "1968 [YR1968]": "",
-    "1969 [YR1969]": "",
-    "1970 [YR1970]": "",
-    "1971 [YR1971]": "",
-    "1972 [YR1972]": "",
-    "1973 [YR1973]": "",
-    "1974 [YR1974]": "",
-    "1975 [YR1975]": "",
-    "1976 [YR1976]": "",
-    "1977 [YR1977]": "",
-    "1978 [YR1978]": "",
-    "1979 [YR1979]": "",
-    "1980 [YR1980]": "",
-    "1981 [YR1981]": "",
-    "1982 [YR1982]": "",
-    "1983 [YR1983]": "",
-    "1984 [YR1984]": "",
-    "1985 [YR1985]": "",
-    "1986 [YR1986]": "",
-    "1987 [YR1987]": "",
-    "1988 [YR1988]": "",
-    "1989 [YR1989]": "",
-    "1990 [YR1990]": "",
-    "1991 [YR1991]": "",
-    "1992 [YR1992]": "",
-    "1993 [YR1993]": "",
-    "1994 [YR1994]": "",
-    "1995 [YR1995]": "",
-    "1996 [YR1996]": "",
-    "1997 [YR1997]": "",
-    "1998 [YR1998]": "",
-    "1999 [YR1999]": "",
-    "2000 [YR2000]": "",
-    "2001 [YR2001]": "",
-    "2002 [YR2002]": "",
-    "2003 [YR2003]": "",
-    "2004 [YR2004]": "",
-    "2005 [YR2005]": "",
-    "2006 [YR2006]": "",
-    "2007 [YR2007]": "",
-    "2008 [YR2008]": "",
-    "2009 [YR2009]": "",
-    "2010 [YR2010]": "",
-    "2011 [YR2011]": "",
-    "2012 [YR2012]": "",
-    "2013 [YR2013]": "",
-    "2014 [YR2014]": "",
-    "2015 [YR2015]": "",
-    "2016 [YR2016]": "",
-    "2017 [YR2017]": "",
-    "2018 [YR2018]": "",
-    "2019 [YR2019]": "",
-    "2020 [YR2020]": ""
-  },
-  {
-    "1960 [YR1960]": "",
-    "1961 [YR1961]": "",
-    "1962 [YR1962]": "",
-    "1963 [YR1963]": "",
-    "1964 [YR1964]": "",
-    "1965 [YR1965]": "",
-    "1966 [YR1966]": "",
-    "1967 [YR1967]": "",
-    "1968 [YR1968]": "",
-    "1969 [YR1969]": "",
-    "1970 [YR1970]": "2.19303005039381",
-    "1971 [YR1971]": "0.861683643412176",
-    "1972 [YR1972]": "0.901263607576365",
-    "1973 [YR1973]": "0.816506871013134",
-    "1974 [YR1974]": "0.822457211883897",
-    "1975 [YR1975]": "0.876838577749487",
-    "1976 [YR1976]": "1.17697893902793",
-    "1977 [YR1977]": "1.01005951460868",
-    "1978 [YR1978]": "0.952123541884062",
-    "1979 [YR1979]": "0.836547889910224",
-    "1980 [YR1980]": "0.74871712563341",
-    "1981 [YR1981]": "0.801606062727439",
-    "1982 [YR1982]": "0.98698706446662",
-    "1983 [YR1983]": "1.14121111892308",
-    "1984 [YR1984]": "1.36133011285889",
-    "1985 [YR1985]": "1.47160137591219",
-    "1986 [YR1986]": "2.01146607101978",
-    "1987 [YR1987]": "1.89043205839311",
-    "1988 [YR1988]": "1.90001049928229",
-    "1989 [YR1989]": "2.23167094716766",
-    "1990 [YR1990]": "2.42896753511004",
-    "1991 [YR1991]": "2.79985168851234",
-    "1992 [YR1992]": "2.56225567957056",
-    "1993 [YR1993]": "2.87896362157153",
-    "1994 [YR1994]": "3.23442716238468",
-    "1995 [YR1995]": "3.6876407656098",
-    "1996 [YR1996]": "3.00746243863947",
-    "1997 [YR1997]": "2.95320895844995",
-    "1998 [YR1998]": "2.82088593222248",
-    "1999 [YR1999]": "2.18097561513434",
-    "2000 [YR2000]": "2.30193534409001",
-    "2001 [YR2001]": "2.44583880286812",
-    "2002 [YR2002]": "3.01941996806189",
-    "2003 [YR2003]": "4.27098120432659",
-    "2004 [YR2004]": "2.48637589416577",
-    "2005 [YR2005]": "2.93712915145645",
-    "2006 [YR2006]": "1.86526396402304",
-    "2007 [YR2007]": "3.25206970148843",
-    "2008 [YR2008]": "2.59909670096585",
-    "2009 [YR2009]": "1.23889590190372",
-    "2010 [YR2010]": "1.47271501275286",
-    "2011 [YR2011]": "1.62039088631665",
-    "2012 [YR2012]": "1.68645193604925",
-    "2013 [YR2013]": "2.11147368985341",
-    "2014 [YR2014]": "4.60623951779512",
-    "2015 [YR2015]": "2.3885587126687",
-    "2016 [YR2016]": "3.42449506024884",
-    "2017 [YR2017]": "1.95306162490235",
-    "2018 [YR2018]": "2.38020676284229",
-    "2019 [YR2019]": "1.82779477036932",
-    "2020 [YR2020]": "2.89688189714098"
-  },
-  {
-    "1960 [YR1960]": "",
-    "1961 [YR1961]": "",
-    "1962 [YR1962]": "",
-    "1963 [YR1963]": "",
-    "1964 [YR1964]": "",
-    "1965 [YR1965]": "",
-    "1966 [YR1966]": "",
-    "1967 [YR1967]": "",
-    "1968 [YR1968]": "",
-    "1969 [YR1969]": "",
-    "1970 [YR1970]": "",
-    "1971 [YR1971]": "",
-    "1972 [YR1972]": "",
-    "1973 [YR1973]": "",
-    "1974 [YR1974]": "",
-    "1975 [YR1975]": "",
-    "1976 [YR1976]": "",
-    "1977 [YR1977]": "",
-    "1978 [YR1978]": "",
-    "1979 [YR1979]": "",
-    "1980 [YR1980]": "",
-    "1981 [YR1981]": "0.890595955994368",
-    "1982 [YR1982]": "1.03467802431667",
-    "1983 [YR1983]": "1.16227212942934",
-    "1984 [YR1984]": "0.875207088288995",
-    "1985 [YR1985]": "0.799716735265231",
-    "1986 [YR1986]": "0.989826739647652",
-    "1987 [YR1987]": "1.41192060324589",
-    "1988 [YR1988]": "1.46195844270027",
-    "1989 [YR1989]": "1.62389721357691",
-    "1990 [YR1990]": "1.95039548296295",
-    "1991 [YR1991]": "2.1619220972275",
-    "1992 [YR1992]": "2.0178293228644",
-    "1993 [YR1993]": "2.2909420748735",
-    "1994 [YR1994]": "1.97712739978191",
-    "1995 [YR1995]": "2.08467041231189",
-    "1996 [YR1996]": "1.85094706347729",
-    "1997 [YR1997]": "1.94050463933722",
-    "1998 [YR1998]": "1.82095989362801",
-    "1999 [YR1999]": "2.4624261876913",
-    "2000 [YR2000]": "2.22371758974314",
-    "2001 [YR2001]": "1.89364458746433",
-    "2002 [YR2002]": "2.1362011748293",
-    "2003 [YR2003]": "2.27398081072033",
-    "2004 [YR2004]": "1.19496636192185",
-    "2005 [YR2005]": "1.21183670906909",
-    "2006 [YR2006]": "1.0030024674304",
-    "2007 [YR2007]": "0.89614401392374",
-    "2008 [YR2008]": "0.721337498932576",
-    "2009 [YR2009]": "0.783526262602645",
-    "2010 [YR2010]": "0.859645863516074",
-    "2011 [YR2011]": "0.839459319581582",
-    "2012 [YR2012]": "0.848647208362475",
-    "2013 [YR2013]": "0.813190131468773",
-    "2014 [YR2014]": "0.777987371443535",
-    "2015 [YR2015]": "1.15078538655399",
-    "2016 [YR2016]": "1.50079294867612",
-    "2017 [YR2017]": "1.67788962731548",
-    "2018 [YR2018]": "1.74167759423434",
-    "2019 [YR2019]": "1.93664477909683",
-    "2020 [YR2020]": "1.87749369080024"
-  }]
+{
+  "Saudi Arabia": [
+     {
+        "Partner Countries": "Poland",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 448613
+     },
+     {
+        "Partner Countries": "Lithuania",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 260521
+     },
+     {
+        "Partner Countries": "Lithuania",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 259583
+     },
+     {
+        "Partner Countries": "Germany",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 257434
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 191477
+     },
+     {
+        "Partner Countries": "Germany",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 139850
+     },
+     {
+        "Partner Countries": "Lithuania",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 130500
+     },
+     {
+        "Partner Countries": "Latvia",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 129703
+     },
+     {
+        "Partner Countries": "Latvia",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 70100
+     },
+     {
+        "Partner Countries": "Poland",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 66149
+     },
+     {
+        "Partner Countries": "Poland",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 64090
+     },
+     {
+        "Partner Countries": "Brazil",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 62460
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 61700
+     },
+     {
+        "Partner Countries": "Yemen",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 304
+     },
+     {
+        "Partner Countries": "Yemen",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 92
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 84
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 50
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 37
+     },
+     {
+        "Partner Countries": "Yemen",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 30
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 11
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 6
+     },
+     {
+        "Partner Countries": "Lebanon",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "Australia",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "Egypt",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "Estonia",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "Germany",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "Ukraine",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "India",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 1199521
+     },
+     {
+        "Partner Countries": "India",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1045884
+     },
+     {
+        "Partner Countries": "India",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 968660
+     },
+     {
+        "Partner Countries": "Pakistan",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 134885
+     },
+     {
+        "Partner Countries": "Pakistan",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 126799
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 112894
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 103685
+     },
+     {
+        "Partner Countries": "Pakistan",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 93272
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 90510
+     },
+     {
+        "Partner Countries": "Thailand",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 62574
+     },
+     {
+        "Partner Countries": "Thailand",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 44520
+     },
+     {
+        "Partner Countries": "Viet Nam",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 32292
+     },
+     {
+        "Partner Countries": "Thailand",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 31377
+     },
+     {
+        "Partner Countries": "Australia",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 30358
+     },
+     {
+        "Partner Countries": "Viet Nam",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 27803
+     },
+     {
+        "Partner Countries": "Viet Nam",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 20941
+     },
+     {
+        "Partner Countries": "Australia",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 16176
+     },
+     {
+        "Partner Countries": "Brazil",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 10918
+     },
+     {
+        "Partner Countries": "Brazil",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 9836
+     },
+     {
+        "Partner Countries": "Brazil",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 6834
+     },
+     {
+        "Partner Countries": "Australia",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 4316
+     },
+     {
+        "Partner Countries": "Bangladesh",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 3798
+     },
+     {
+        "Partner Countries": "Cambodia",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 3302
+     },
+     {
+        "Partner Countries": "Portugal",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 2554
+     },
+     {
+        "Partner Countries": "China, mainland",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 2508
+     },
+     {
+        "Partner Countries": "Portugal",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 2401
+     },
+     {
+        "Partner Countries": "Bangladesh",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 2331
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 2059
+     },
+     {
+        "Partner Countries": "Bangladesh",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1964
+     },
+     {
+        "Partner Countries": "China, mainland",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1852
+     },
+     {
+        "Partner Countries": "Portugal",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1612
+     },
+     {
+        "Partner Countries": "Bulgaria",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 1545
+     },
+     {
+        "Partner Countries": "Spain",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1453
+     },
+     {
+        "Partner Countries": "Spain",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1402
+     },
+     {
+        "Partner Countries": "Egypt",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1100
+     },
+     {
+        "Partner Countries": "China, mainland",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 924
+     },
+     {
+        "Partner Countries": "Spain",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 906
+     },
+     {
+        "Partner Countries": "Greece",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 815
+     },
+     {
+        "Partner Countries": "Egypt",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 801
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 800
+     },
+     {
+        "Partner Countries": "Egypt",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 567
+     },
+     {
+        "Partner Countries": "Cambodia",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 558
+     },
+     {
+        "Partner Countries": "Argentina",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 519
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 432
+     },
+     {
+        "Partner Countries": "Philippines",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 271
+     },
+     {
+        "Partner Countries": "Sri Lanka",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 162
+     },
+     {
+        "Partner Countries": "Bulgaria",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 149
+     },
+     {
+        "Partner Countries": "Sri Lanka",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 113
+     },
+     {
+        "Partner Countries": "Argentina",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 100
+     },
+     {
+        "Partner Countries": "United Arab Emirates",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 96
+     },
+     {
+        "Partner Countries": "South Africa",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 87
+     },
+     {
+        "Partner Countries": "Uzbekistan",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 83
+     },
+     {
+        "Partner Countries": "Bulgaria",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 72
+     },
+     {
+        "Partner Countries": "United Arab Emirates",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 72
+     },
+     {
+        "Partner Countries": "Sri Lanka",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 67
+     },
+     {
+        "Partner Countries": "Philippines",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 63
+     },
+     {
+        "Partner Countries": "Iraq",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 56
+     },
+     {
+        "Partner Countries": "Lebanon",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 51
+     },
+     {
+        "Partner Countries": "Iraq",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 50
+     },
+     {
+        "Partner Countries": "Mongolia",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 48
+     },
+     {
+        "Partner Countries": "Iraq",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 47
+     },
+     {
+        "Partner Countries": "Serbia",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 40
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 25
+     },
+     {
+        "Partner Countries": "Philippines",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 23
+     },
+     {
+        "Partner Countries": "Afghanistan",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 21
+     },
+     {
+        "Partner Countries": "Belgium",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 21
+     },
+     {
+        "Partner Countries": "Romania",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 21
+     },
+     {
+        "Partner Countries": "Indonesia",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 17
+     },
+     {
+        "Partner Countries": "Indonesia",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 14
+     },
+     {
+        "Partner Countries": "United Kingdom of Great Britain and Northern Ireland",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 14
+     },
+     {
+        "Partner Countries": "Indonesia",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 13
+     },
+     {
+        "Partner Countries": "Peru",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 12
+     },
+     {
+        "Partner Countries": "China, Taiwan Province of",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 7
+     },
+     {
+        "Partner Countries": "Republic of Korea",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 7
+     },
+     {
+        "Partner Countries": "Turkey",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 6
+     },
+     {
+        "Partner Countries": "United Arab Emirates",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 6
+     },
+     {
+        "Partner Countries": "United Kingdom of Great Britain and Northern Ireland",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 6
+     },
+     {
+        "Partner Countries": "Japan",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 5
+     },
+     {
+        "Partner Countries": "Germany",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 3
+     },
+     {
+        "Partner Countries": "Japan",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 3
+     },
+     {
+        "Partner Countries": "Republic of Korea",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 3
+     },
+     {
+        "Partner Countries": "United Kingdom of Great Britain and Northern Ireland",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 3
+     },
+     {
+        "Partner Countries": "Canada",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "Malaysia",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "Netherlands",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "Republic of Korea",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "Belgium",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Canada",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Canada",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Germany",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Germany",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Japan",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Turkey",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Ukraine",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "Lebanon",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": null
+     },
+     {
+        "Partner Countries": "Turkey",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": null
+     }
+  ],
+  "Egypt": [
+     {
+        "Partner Countries": "Australia",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 264309
+     },
+     {
+        "Partner Countries": "Australia",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 32724
+     },
+     {
+        "Partner Countries": "Australia",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 203640
+     },
+     {
+        "Partner Countries": "Belarus",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 67604
+     },
+     {
+        "Partner Countries": "Belarus",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 57750
+     },
+     {
+        "Partner Countries": "Brazil",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 5
+     },
+     {
+        "Partner Countries": "Bulgaria",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 57741
+     },
+     {
+        "Partner Countries": "Bulgaria",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 14
+     },
+     {
+        "Partner Countries": "Bulgaria",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 46593
+     },
+     {
+        "Partner Countries": "Canada",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 34901
+     },
+     {
+        "Partner Countries": "Canada",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 64
+     },
+     {
+        "Partner Countries": "Canada",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 8391
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 67
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 625830
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 593422
+     },
+     {
+        "Partner Countries": "Hungary",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 19171
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Lithuania",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 38029
+     },
+     {
+        "Partner Countries": "Lithuania",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 23518
+     },
+     {
+        "Partner Countries": "Netherlands",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Poland",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 138721
+     },
+     {
+        "Partner Countries": "Poland",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 128333
+     },
+     {
+        "Partner Countries": "Republic of Moldova",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 9
+     },
+     {
+        "Partner Countries": "Romania",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 1104706
+     },
+     {
+        "Partner Countries": "Romania",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 1286086
+     },
+     {
+        "Partner Countries": "Romania",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 294522
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 9198030
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 5743949
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 5460508
+     },
+     {
+        "Partner Countries": "Ukraine",
+        "Item": "Wheat",
+        "Year": 2018,
+        "Value": 1600458
+     },
+     {
+        "Partner Countries": "Ukraine",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 1767563
+     },
+     {
+        "Partner Countries": "Ukraine",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 2317534
+     },
+     {
+        "Partner Countries": "United Kingdom of Great Britain and Northern Ireland",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Wheat",
+        "Year": 2019,
+        "Value": 782095
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Wheat",
+        "Year": 2020,
+        "Value": 75282
+     },
+     {
+        "Partner Countries": "China, mainland",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 425186
+     },
+     {
+        "Partner Countries": "India",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 61402
+     },
+     {
+        "Partner Countries": "India",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 49898
+     },
+     {
+        "Partner Countries": "China, mainland",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 32672
+     },
+     {
+        "Partner Countries": "India",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 29165
+     },
+     {
+        "Partner Countries": "China, mainland",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 16699
+     },
+     {
+        "Partner Countries": "Thailand",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 8190
+     },
+     {
+        "Partner Countries": "Thailand",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 7620
+     },
+     {
+        "Partner Countries": "Pakistan",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 4960
+     },
+     {
+        "Partner Countries": "Thailand",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1136
+     },
+     {
+        "Partner Countries": "Pakistan",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 553
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 315
+     },
+     {
+        "Partner Countries": "Viet Nam",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 293
+     },
+     {
+        "Partner Countries": "Pakistan",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 284
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 138
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 127
+     },
+     {
+        "Partner Countries": "Viet Nam",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 93
+     },
+     {
+        "Partner Countries": "Italy",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 32
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 22
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 19
+     },
+     {
+        "Partner Countries": "Netherlands",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 9
+     },
+     {
+        "Partner Countries": "Cambodia",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 4
+     },
+     {
+        "Partner Countries": "Spain",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 4
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 2
+     },
+     {
+        "Partner Countries": "Brunei Darussalam",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Russian Federation",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Saudi Arabia",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Sri Lanka",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "United Kingdom of Great Britain and Northern Ireland",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "United Kingdom of Great Britain and Northern Ireland",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 1
+     },
+     {
+        "Partner Countries": "Australia",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Bahrain",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Denmark",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "France",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Greece",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Kuwait",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Kuwait",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Kuwait",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Nigeria",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Oman",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Qatar",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Qatar",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Republic of Korea",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Saudi Arabia",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "Saudi Arabia",
+        "Item": "Rice",
+        "Year": 2020,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "South Africa",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "United Arab Emirates",
+        "Item": "Rice",
+        "Year": 2018,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "United Kingdom of Great Britain and Northern Ireland",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     },
+     {
+        "Partner Countries": "United States of America",
+        "Item": "Rice",
+        "Year": 2019,
+        "Value": 0
+     }
+  ]
+}
