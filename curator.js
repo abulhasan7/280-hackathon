@@ -9,9 +9,9 @@ for(let jsonobj of json){
     for(let key of Object.keys(jsonobj)){
         temp[key.substring(0,4)] = jsonobj[key] ==".."?"":jsonobj[key];
     }
-    if(index==2){
+    if(index==1){
         us = temp;
-    }else if(index ==1){
+    }else if(index ==2){
         India = temp;
     }else{
         China = temp;
