@@ -1,490 +1,482 @@
 <!DOCTYPE html>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
     body {
-    background-color:white;
-  }
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a, .dropbtn {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover, .dropdown:hover .dropbtn {
-    background-color: white;
-  }
-  
-  li.dropdown {
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .dropdown-content a:hover {background-color: #f1f1f1;}
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Fixed sidenav, full height */
-  .sidenav {
-    width: 200px;
-    top: 0;
-    left: 0;
-    background-color: white;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  /* Style the sidenav links and the dropdown button */
-  .sidenav a, .dropdwn-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  /* On mouse-over */
-  .sidenav a:hover, .dropdwn-btn:hover {
-    color: black;
-  }
-  
-  .main {
-    margin-left: 250px; /* Same as the width of the sidenav */
-    font-size: 20px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-    margin-top: -13em;
-  }
-  
-  
-  
-  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-  .dropdwn-container {
-    display: none;
-    background-color: white;
-    padding-left: 8px;
-  }
-  
-  /* Optional: Style the caret down icon */
-  .fa-caret-down {
-    float: right;
-    padding-right: 8px;
-  }
-  
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-  }
-  .range-slider {
-    position: relative;
-    width: 714px;
-    height: 10px;
-    border-radius: 15px;  background: transparent linear-gradient(90deg, #5f822d 0%, #a5af33 100%) 0% 0%
-  
-      no-repeat padding-box;
-  }
-  .range-slider .progress {
-    position: absolute;
-    left: 25%;
-    right: 0%;
-    height: 100%;
-    border-radius: 15px;
-    background: transparent linear-gradient(90deg, #e4e7c1 0%, #d39892 100%) 0% 0%
-      no-repeat padding-box;
-  }
-  .range-slider input[type="range"] {
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    -webkit-appearance: none;
-    pointer-events: none;
-    background: none;
-    outline: none;
-  }
-  .range-slider .range-min::-webkit-slider-thumb {
-    pointer-events: auto;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #fcfcfc 0% 0% no-repeat padding-box;
-    border: 2px solid black;
-    border-radius: 20px;
-    opacity: 1;
-  }
-  .range-slider .range-max::-webkit-slider-thumb {
-    pointer-events: auto;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #fcfcfc 0% 0% no-repeat padding-box;
-    border: 2px solid black;
-    border-radius: 20px;
-    opacity: 1;
-  }
-  #addForm {
-  display: none;
-}
-#addForm2 {
-  display: none;
-}
-#addForm3 {
-  display: none;
-}
+      background-color: white;
+    }
 
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a,
+    .dropbtn {
+      display: inline-block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: white;
+    }
+
+    li.dropdown {
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Fixed sidenav, full height */
+    .sidenav {
+      width: 200px;
+      top: 0;
+      left: 0;
+      background-color: white;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    /* Style the sidenav links and the dropdown button */
+    .sidenav a,
+    .dropdwn-btn {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      color: black;
+      display: block;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* On mouse-over */
+    .sidenav a:hover,
+    .dropdwn-btn:hover {
+      color: black;
+    }
+
+    .main {
+      margin-left: 250px;
+      /* Same as the width of the sidenav */
+      font-size: 20px;
+      /* Increased text to enable scrolling */
+      padding: 0px 10px;
+      margin-top: -13em;
+    }
+
+
+
+    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+    .dropdwn-container {
+      display: none;
+      background-color: white;
+      padding-left: 8px;
+    }
+
+    /* Optional: Style the caret down icon */
+    .fa-caret-down {
+      float: right;
+      padding-right: 8px;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .range-slider {
+      position: relative;
+      width: 714px;
+      height: 10px;
+      border-radius: 15px;
+      background: transparent linear-gradient(90deg, #5f822d 0%, #a5af33 100%) 0% 0% no-repeat padding-box;
+    }
+
+    .range-slider .progress {
+      position: absolute;
+      left: 25%;
+      right: 0%;
+      height: 100%;
+      border-radius: 15px;
+      background: transparent linear-gradient(90deg, #e4e7c1 0%, #d39892 100%) 0% 0% no-repeat padding-box;
+    }
+
+    .range-slider input[type="range"] {
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      -webkit-appearance: none;
+      pointer-events: none;
+      background: none;
+      outline: none;
+    }
+
+    .range-slider .range-min::-webkit-slider-thumb {
+      pointer-events: auto;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #fcfcfc 0% 0% no-repeat padding-box;
+      border: 2px solid black;
+      border-radius: 20px;
+      opacity: 1;
+    }
+
+    .range-slider .range-max::-webkit-slider-thumb {
+      pointer-events: auto;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #fcfcfc 0% 0% no-repeat padding-box;
+      border: 2px solid black;
+      border-radius: 20px;
+      opacity: 1;
+    }
+
+    #addForm {
+      display: none;
+    }
+
+    #addForm2 {
+      display: none;
+    }
+
+    #addForm3 {
+      display: none;
+    }
   </style>
 </head>
 
 <body>
-  
-<div style="border:1px solid black;">
-<ul>
-  <li><a href="index.html"> <img src="logo.jpg" width="100" height="80"></a></li>
-  <li style="margin-top:40px;margin-left:400px">FOOD SECURITY TIME SERIES DASHBOARD</li>
-  <li class="dropdown" style="float:right">
-    <a href="javascript:void(0)" class="dropbtn" style="margin-top: 30px; margin-right: 10px; border:1px solid black;">Countries</a>
-    <div class="dropdown-content">
-      <a href="#">India</a>
-      <a href="#">China</a>
-      <a href="#">USA</a>
+
+  <div style="border:1px solid black;">
+    <ul>
+      <li><a href="#home"> <img src="logo.jpg" width="100" height="80"></a></li>
+      <li style="margin-top:40px;margin-left:400px">FOOD SECURITY TIME SERIES DASHBOARD</li>
+      <li class="dropdown" style="float:right">
+        <a href="javascript:void(0)" class="dropbtn"
+          style="margin-top: 30px; margin-right: 10px; border:1px solid black;">Countries</a>
+        <div class="dropdown-content">
+          <a href="#">India</a>
+          <a href="#">China</a>
+          <a href="#">USA</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidenav" style="border:1px solid black;">
+    <button class="dropdwn-btn"> Macroeconomics
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdwn-container">
+      <a id="showForm" href="#">Link 1</a>
+      <a id="showForm2" href="#">Link 2</a>
+      <a id="showForm3" href="#">Link 3</a>
     </div>
-  </li>
-</ul>
-</div>
+    <button class="dropdwn-btn">Agricultural
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdwn-container">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+    <button class="dropdwn-btn"> Debt Services
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdwn-container">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+    <button class="dropdwn-btn">Crops
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdwn-container">
+      <a href="map1.html">Bananas</a>
+      <a href="map2.html">Mangoes</a>
+      <a href="map3.html">Walnuts</a>
+    </div>
+    <button onclick="window.location.href='imports1.html'" class="dropdwn-btn">Imports</button>
+    <button class="dropdwn-btn">Yield
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdwn-container">
+      <a href="yield.html">Iran's Yield</a>
+      <a href="yield2.html">Phillipine's Yield</a>
+    </div>
+  </div>
+  <div class="main">
+    <h2 style="margin-left: 500px;">CHARTS</h2>
+    <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
+      <div class="min-value numberVal">
+        <input type="number" id="min-value-number" class="" min="1960" max="2020" value="1960" disabled>
+      </div>
+      &nbsp;
+      <div class="range-slider">
+        <div class="progress"></div>
+        <span class="range-min-wrapper">
+          <input class="range-min" type="range" min="1960" max="2020" value="1960">
+          <!-- <span class="range-min-value">0</span> -->
+        </span>
+        <span class="range-max-wrapper">
+          <input class="range-max" type="range" min="1960" max="2020" value="2020">
+          <!-- <span class="range-max-value">100</span> -->
+        </span>
+      </div>
+      &nbsp;
+      <div class="max-value numberVal">
+        <input type="number" id="max-value-number" class="border text-center" min="1960" max="2020" value="2020"
+          disabled>
+      </div>
+    </div>
+    <div id="addForm" style="margin-left: 200px;width: 1000px;height: 300px;"></div>
+    <div id="addForm2" style="margin-left: 200px;width: 1000px;height: 300px;"></div>
+    <div id="addForm3" style="margin-left: 200px;width: 1000px;height: 300px;"></div>
 
-<div class="sidenav" style="border:1px solid black;">
-  <button class="dropdwn-btn"> Macroeconomics
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdwn-container">
-    <a id="showForm" href="#">Link 1</a>
-    <a id="showForm2" href="#">Link 2</a>
-    <a id="showForm3" href="#">Link 3</a>
-  </div>
-  <button class="dropdwn-btn">Agricultural
-        <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdwn-container">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-  <button class="dropdwn-btn"> Debt Services
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdwn-container">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-  <button class="dropdwn-btn">Crops
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdwn-container">
-    <a href="map1.html">Bananas</a>
-    <a href="map2.html">Mangoes</a>
-    <a href="map3.html">Walnuts</a>
-  </div>
-  <button onclick="window.location.href='imports1.html'" class="dropdwn-btn">Imports</button>
-  <button class="dropdwn-btn">Yield
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdwn-container">
-    <a href="yield.html">Iran's Yield</a>
-    <a href="yield2.html">Phillipine's Yield</a>
-  </div>  
-</div>
-<div class="main">
-  <h2 style="margin-left: 500px;">CHARTS</h2>
-  
-  <div id="addForm">
-  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
-  <div class="min-value numberVal">
-    <input type="number" id="min-value-number" class="" min="1960" max="2020" value="1960" disabled>
-  </div>
-  &nbsp;
-  <div class="range-slider">
-    <div class="progress"></div>
-    <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1960" max="2020" value="1995">
-      <!-- <span class="range-min-value">0</span> -->
-    </span>
-    <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1960" max="2020" value="2005">
-      <!-- <span class="range-max-value">100</span> -->
-    </span>
-  </div>
-  &nbsp;
-  <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
-  </div>
-</div>
-  <div id="chart_div"></div>
-</div>
-<div id="addForm">
-  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
-  <div class="min-value numberVal">
-    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
-  </div>
-  &nbsp;
-  <div class="range-slider">
-    <div class="progress"></div>
-    <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1960" max="2020" value="1995">
-      <!-- <span class="range-min-value">0</span> -->
-    </span>
-    <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1960" max="2020" value="2005">
-      <!-- <span class="range-max-value">100</span> -->
-    </span>
-  </div>
-  &nbsp;
-  <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
-  </div>
-</div>
-  <div id="chart_div"></div>
-</div>
+    <script>
+      /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+      var dropdown = document.getElementsByClassName("dropdwn-btn");
+      var i;
+      var firstLoad = true;
 
-<script>
-  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-  var dropdown = document.getElementsByClassName("dropdwn-btn");
-  var i;
-  var firstLoad = true;
-
-  for (i = 0; i < dropdown.length; i++) {
-    dropdown[i].addEventListener("click", function () {
-      this.classList.toggle("active");
-      var dropdownContent = this.nextElementSibling;
-      if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-      } else {
-        dropdownContent.style.display = "block";
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
       }
-    });
-  }
 
-  google.charts.load('current', { packages: ['corechart', 'line'] });
-  // google.charts.setOnLoadCallback(drawBasic);
+      google.charts.load('current', { packages: ['corechart', 'line'] });
+      // google.charts.setOnLoadCallback(drawBasic);
 
-  async function drawBasic(fromYear = 1960, toYear = 2020) {
-    let resp = await getBackendData();
-    console.log('resp is', resp);
-    let meGdpData = [];
-    Object.keys(resp.gdp).forEach(elem => {
-      let intElem = parseInt(elem);
-      if (intElem >= fromYear && parseInt(elem) <= toYear) {
-        meGdpData.push([elem, parseInt(resp.gdp[elem]) || 0])
+      async function drawBasic(fromYear = 1960, toYear = 2020) {
+        let resp = await getBackendData();
+        console.log('resp is', resp);
+        let meGdpData = [];
+        Object.keys(resp.gdp).forEach(elem => {
+          let intElem = parseInt(elem);
+          if (intElem >= fromYear && parseInt(elem) <= toYear) {
+            meGdpData.push([elem, parseInt(resp.gdp[elem]) || 0])
+          }
+        });
+        console.log('medata', meGdpData)
+        drawMeGdp(meGdpData);
+        let meInflowData = [];
+        Object.keys(resp.inflows).forEach(elem => {
+          let intElem = parseInt(elem);
+          if (intElem >= fromYear && parseInt(elem) <= toYear) {
+            meInflowData.push([elem, parseInt(resp.inflows[elem]) || 0])
+          }
+        });
+        drawMeInflow(meInflowData);
+
+
+        let meOutflowData = [];
+        Object.keys(resp.outflows).forEach(elem => {
+          let intElem = parseInt(elem);
+          if (intElem >= fromYear && parseInt(elem) <= toYear) {
+            meOutflowData.push([elem, parseInt(resp.outflows[elem]) || 0])
+          }
+        });
+        drawMeOutflow(meOutflowData);
+        firstLoad = false;
       }
-    });
-    console.log('medata', meGdpData)
-    drawMeGdp(meGdpData);
-    let meInflowData = [];
-    Object.keys(resp.inflows).forEach(elem => {
-      let intElem = parseInt(elem);
-      if (intElem >= fromYear && parseInt(elem) <= toYear) {
-        meInflowData.push([elem, parseInt(resp.inflows[elem]) || 0])
+      function drawMeGdp(gdpData) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Year');
+        data.addColumn('number', 'GDP');
+        console.log('data is', gdpData)
+        data.addRows(gdpData);
+        data.sort(({ column: 0, desc: false }));
+
+        var options = {
+          title: 'GDP',
+          curveType: 'function',
+          interpolateNulls: true,
+          hAxis: {
+            title: 'Year',
+            format: 'none',
+          },
+          vAxis: {
+            title: 'GDP'
+          },
+          width: 1000,
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('addForm'));
+
+        chart.draw(data, options);
       }
-    });
-    drawMeInflow(meInflowData);
+      function drawMeInflow(inflowData) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Year');
+        data.addColumn('number', 'Inflows');
+        console.log('inflowdata is', inflowData)
+        data.addRows(inflowData);
 
+        var options = {
+          title: 'FDI Inflows',
+          // curveType: 'function',
+          // interpolateNulls: true,
+          hAxis: {
+            title: 'Year'
+          },
+          width: 1200,
+        };
 
-    let meOutflowData = [];
-    Object.keys(resp.outflows).forEach(elem => {
-      let intElem = parseInt(elem);
-      if (intElem >= fromYear && parseInt(elem) <= toYear) {
-        meOutflowData.push([elem, parseInt(resp.outflows[elem]) || 0])
+        var chart = new google.visualization.LineChart(document.getElementById('addForm2'));
+
+        chart.draw(data, options);
       }
-    });
-    drawMeOutflow(meOutflowData);
-    firstLoad = false;
-  }
-  function drawMeGdp(gdpData) {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Year');
-    data.addColumn('number', 'GDP');
-    console.log('data is', gdpData)
-    data.addRows(gdpData);
-    data.sort(({ column: 0, desc: false }));
+      function drawMeOutflow(outflowData) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Year');
+        data.addColumn('number', 'Outflows');
+        console.log('data is', outflowData)
+        data.addRows(outflowData);
+        data.sort(({ column: 0, desc: false }));
 
-    var options = {
-      title: 'GDP',
-      curveType: 'function',
-      interpolateNulls: true,
-      hAxis: {
-        title: 'Year',
-        format: 'none',
-      },
-      vAxis: {
-        title: 'GDP'
-      },
-      width: 1000,
-    };
+        var options = {
+          title: 'FDI Outflows',
+          curveType: 'function',
+          interpolateNulls: true,
+          hAxis: {
+            title: 'Year',
+            format: 'none',
+          },
+          width: 1000,
+        };
 
-    var chart = new google.visualization.LineChart(document.getElementById('addForm'));
+        var chart = new google.visualization.LineChart(document.getElementById('addForm3'));
 
-    chart.draw(data, options);
-  }
-  function drawMeInflow(inflowData) {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Year');
-    data.addColumn('number', 'Inflows');
-    console.log('inflowdata is', inflowData)
-    data.addRows(inflowData);
+        chart.draw(data, options);
+      }
+      async function getBackendData() {
+        let response = await fetch('http://localhost:3000/me?country=Usa')
+        let data = await response.json();
+        console.log('respnse form back', data)
+        // localStorage.setItem('', JSON.stringify(data['Saudi Arabia']));
+        return data;
+      }
+      const range = document.querySelectorAll(".range-slider span input");
+      progress = document.querySelector(".range-slider .progress");
+      let gap = 1;
+      const inputValue = document.querySelectorAll(".numberVal input");
 
-    var options = {
-      title: 'FDI Inflows',
-      // curveType: 'function',
-      // interpolateNulls: true,
-      hAxis: {
-        title: 'Year'
-      },
-      width: 1200,
-    };
+      range.forEach((input) => {
+        input.addEventListener("input", (e) => {
+          let minRange = parseInt(range[0].value);
+          let maxRange = parseInt(range[1].value);
 
-    var chart = new google.visualization.LineChart(document.getElementById('addForm2'));
+          if (maxRange - minRange < gap) {
+            if (e.target.className === "range-min") {
+              range[0].value = maxRange - gap;
+            } else {
+              range[1].value = minRange + gap;
+            }
+          } else {
+            progress.style.left = (minRange / range[0].max) * 100 + "%";
+            progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
+            inputValue[0].value = minRange;
+            inputValue[1].value = maxRange;
+            drawBasic(minRange, maxRange)
+          }
+        });
+      });
 
-    chart.draw(data, options);
-  }
-  function drawMeOutflow(outflowData) {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Year');
-    data.addColumn('number', 'Outflows');
-    console.log('data is', outflowData)
-    data.addRows(outflowData);
-    data.sort(({ column: 0, desc: false }));
-
-    var options = {
-      title: 'FDI Outflows',
-      curveType: 'function',
-      interpolateNulls: true,
-      hAxis: {
-        title: 'Year',
-        format: 'none',
-      },
-      width: 1000,
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('addForm3'));
-
-    chart.draw(data, options);
-  }
-  async function getBackendData() {
-    let response = await fetch('http://localhost:3000/me?country=Usa')
-    let data = await response.json();
-    console.log('respnse form back', data)
-    // localStorage.setItem('', JSON.stringify(data['Saudi Arabia']));
-    return data;
-  }
-  const range = document.querySelectorAll(".range-slider span input");
-  progress = document.querySelector(".range-slider .progress");
-  let gap = 1;
-  const inputValue = document.querySelectorAll(".numberVal input");
-
-  range.forEach((input) => {
-    input.addEventListener("input", (e) => {
-      let minRange = parseInt(range[0].value);
-      let maxRange = parseInt(range[1].value);
-
-      if (maxRange - minRange < gap) {
-        if (e.target.className === "range-min") {
-          range[0].value = maxRange - gap;
+      document.getElementById("showForm").addEventListener('click', () => {
+        var display = document.getElementById("addForm").style.display;
+        console.log('firstload', firstLoad)
+        if (display == 'none' || display == "") {
+            drawBasic();
+          document.getElementById("addForm").style.display = 'block';
         } else {
-          range[1].value = minRange + gap;
+          document.getElementById("addForm").style.display = 'none';
+
         }
-      } else {
-        progress.style.left = (minRange / range[0].max) * 100 + "%";
-        progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
-        inputValue[0].value = minRange;
-        inputValue[1].value = maxRange;
-        drawBasic(minRange, maxRange)
-      }
-    });
-  });
+        console.log('display is', display)
+      })
 
-  document.getElementById("showForm").addEventListener('click', () => {
-    var display = document.getElementById("addForm").style.display;
-    console.log('firstload', firstLoad)
-    if (display == 'none' || display == "") {
-        drawBasic();
-      document.getElementById("addForm").style.display = 'block';
-    } else {
-      document.getElementById("addForm").style.display = 'none';
+      document.getElementById("showForm2").addEventListener('click', () => {
+        var display = document.getElementById("addForm2").style.display;
+        console.log('firstload', firstLoad)
+        if (display == 'none' || display == "") {
+            drawBasic();
+          document.getElementById("addForm2").style.display = 'block';
+        } else {
+          document.getElementById("addForm2").style.display = 'none';
 
-    }
-    console.log('display is', display)
-  })
+        }
+        console.log('display is ', display)
+      })
 
-  document.getElementById("showForm2").addEventListener('click', () => {
-    var display = document.getElementById("addForm2").style.display;
-    console.log('firstload', firstLoad)
-    if (display == 'none' || display == "") {
-        drawBasic();
-      document.getElementById("addForm2").style.display = 'block';
-    } else {
-      document.getElementById("addForm2").style.display = 'none';
+      document.getElementById("showForm3").addEventListener('click', () => {
+        var display = document.getElementById("addForm3").style.display;
+        console.log('firstload', firstLoad)
+        if (display == 'none' || display == "") {
+            drawBasic();
+          document.getElementById("addForm3").style.display = 'block';
+        } else {
+          document.getElementById("addForm3").style.display = 'none';
 
-    }
-    console.log('display is ', display)
-  })
+        }
+        console.log('display is ', display)
+      })
 
-  document.getElementById("showForm3").addEventListener('click', () => {
-    var display = document.getElementById("addForm3").style.display;
-    console.log('firstload', firstLoad)
-    if (display == 'none' || display == "") {
-        drawBasic();
-      document.getElementById("addForm3").style.display = 'block';
-    } else {
-      document.getElementById("addForm3").style.display = 'none';
-
-    }
-    console.log('display is ', display)
-  })
-
-  document.getElementById("min-value-number").addEventListener('change', (event) => {
-    console.log('event.target.value', event.target.value)
-  })
-</script>
+      document.getElementById("min-value-number").addEventListener('change', (event) => {
+        console.log('event.target.value', event.target.value)
+      })
+    </script>
 </body>
 
 </html>
