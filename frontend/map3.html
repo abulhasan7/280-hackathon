@@ -190,7 +190,7 @@
             Kohgilouyeh-Boyerahmad , Khorasan Razavi, 
             Bakhtiari, Eastern and Western Azerbaijan and 
             Markazi</h3></div>
-          <div style="display: flex; flex-direction:column"><h3> USA – major areas are San Joaquin and 
+          <div style="display: flex; flex-direction:column"><h3> USA major areas are San Joaquin and 
             Sacramento Valleys </h3></div>
       </div>
   <div style="display: flex; flex-direction:row">
@@ -235,11 +235,11 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
         var uluru2 = [[{lat: 37.98460291638193, lng: -121.86807975493869}, 10000000],
                      [{lat: 38.62871587148763, lng: -121.46033015473769}, 3000000]];
         var map2 = new google.maps.Map(document.getElementById('map2'), {
-          zoom: 8,
+          zoom: 7,
           center: uluru2[0][0]
         });
         var marker = "";
-        for(var i=0;i<11;i++){
+        for(var i=0;i<10;i++){
           marker = new google.maps.Marker({
             position: uluru[i][0],
             animation: google.maps.Animation.DROP,
