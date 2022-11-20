@@ -193,7 +193,7 @@
 </div>
 
 <div class="sidenav" style="border:1px solid black;">
-  <button class="dropdwn-btn"> Macroeconomics
+  <button onclick="window.location.href='index.html'" class="dropdwn-btn"> Macroeconomics
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdwn-container">
@@ -236,57 +236,11 @@
   
 </div>
 <div class="main">
-  <h2 style="margin-left: 500px;">CHARTS</h2>
-  
-  <div id="addForm">
-  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
-  <div class="min-value numberVal">
-    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
-  </div>
-  &nbsp;
-  <div class="range-slider">
-    <div class="progress"></div>
-    <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1960" max="2020" value="1995">
-      <!-- <span class="range-min-value">0</span> -->
-    </span>
-    <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1960" max="2020" value="2005">
-      <!-- <span class="range-max-value">100</span> -->
-    </span>
-  </div>
-  &nbsp;
-  <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
-  </div>
+  <h2 style="margin-left: 400px;">Iran's Yield</h2>
+  <div style="display: flex; flex-direction:row; margin-left: 150px;">
+    <div id="curve_chart" style="display: flex; flex-direction:column; width: 400px; height: 500px" ></div>
+    <div id="curve_chart2" style="display: flex; flex-direction:column width: 500px; height: 500px" ></div>
 </div>
-  <div id="chart_div"></div>
-</div>
-<div id="addForm">
-  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
-  <div class="min-value numberVal">
-    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
-  </div>
-  &nbsp;
-  <div class="range-slider">
-    <div class="progress"></div>
-    <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1960" max="2020" value="1995">
-      <!-- <span class="range-min-value">0</span> -->
-    </span>
-    <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1960" max="2020" value="2005">
-      <!-- <span class="range-max-value">100</span> -->
-    </span>
-  </div>
-  &nbsp;
-  <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
-  </div>
-</div>
-  <div id="chart_div"></div>
-</div>
-
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdwn-btn");
@@ -303,73 +257,162 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
      }
    });
  }
+ google.charts.load('current', {'packages':['corechart']});
+ google.charts.setOnLoadCallback(drawChart);
 
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawBasic);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Area Harvested', 'Production (tonnes)'],
+          ['1961',  4400,      8000],
+          ['1962',  4400,      8000],
+          ['1963',  2500,       3000],
+          ['1964',  2500,     3000],
+          ['1965',  2500,      4000],
+          ['1966',  2500,      3000],
+          ['1967',  2500,       4000],
+          ['1968',  3000,     6000],
+          ['1969',  3000,      6000],
+          ['1970',  2000,      4000],
+          ['1971',  1900,       3500],
+          ['1972',  1800,     3200],
+          ['1973',  1700,      3000],
+          ['1974',  1600,      3300],
+          ['1975',  1500,       3100],
+          ['1976',  1500,     2800],
+          ['1977',  1500,      3250],
+          ['1978',  1500,      3000],
+          ['1979',  1500,       3000],
+          ['1980',  2200,      6000],
+          ['1981',  4800,      13000],
+          ['1982',  6283,     18197],
+          ['1983',  6733,       21612],
+          ['1984',  7468,     22996],
+          ['1985',  7840,      31422],
+          ['1986',  11347,       40930],
+          ['1987',  8951,     32957],
+          ['1988',  10544,      37821],
+          ['1989',  12143,      64009],
+          ['1990',  15025,     44482],
+          ['1991',  17973,      64486],
+          ['1992',  22208,      71237],
+          ['1993',  25976,       110819],
+          ['1994',  28975,      117218],
+          ['1995',  32287,      119218],
+          ['1996',  35781,      113185],
+          ['1997',  41766,       124196],
+          ['1998',  45152,      145145],
+          ['1999',  50161,      142906],
+         
+          ['2000',  51971,      129276],
+          ['2001',  61795,      162838],
+          ['2002',  67194,      177673],
+          ['2003',  74979,     204883],
+          ['2004',  88888,      168320],
+          ['2005',  96697,      247864],
+          ['2006',  146010,      367445],
+          ['2007',  119687,     299789],
+          ['2008',  115919,     260355],
+          ['2009',  116794,       279742],
+          ['2010',  117603,     268135],
+          ['2011',  112855,      280275],
+          ['2012',  124843,       284421],
+          ['2013',  109759,     222610],
+          ['2014',  141019,      403158],
+          ['2015',  142000,      420000],
+          ['2016',  71425,       349192],
+          ['2017',  53952,      393598],
+          ['2018',  43946,      304040],
+          ['2019',  44780,       321074],
+          ['2020',  59920,      356666],
+          
+        ]);
 
-function drawBasic() {
+        var options = {
+          title: 'Area harvested (ha)',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
 
-     var data = new google.visualization.DataTable();
-     data.addColumn('number', 'Year');
-     data.addColumn('number', 'GDP');
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-     data.addRows([
-      [2016,20],[1999,16],[2020,89],[2008,98],[2001,60],[2015,28]
-     ]);
-     data.sort(({column: 0, desc:false}));
+        chart.draw(data, options);
 
-     var options = {
-       hAxis: {
-         title: 'Year'
-       },
-       vAxis: {
-         title: 'GDP'
-       }
-     };
+        var data2 = google.visualization.arrayToDataTable([
+          ['Year', 'Area Harvested', 'Yield (hg/ha)'],
+          ['1961',  4400,      18182],
+          ['1962',  4400,     18182],
+          ['1963',  2500,       12000],
+          ['1964',  2500,     12000],
+          ['1965',  2500,     16000],
+          ['1966',  2500,      12000],
+          ['1967',  2500,      16000],
+          ['1968',  3000,     20000],
+          ['1969',  3000,     20000],
+          ['1970',  2000,     20000],
+          ['1971',  1900,     18421],
+          ['1972',  1800,     17778],
+          ['1973',  1700,      17647],
+          ['1974',  1600,      20625],
+          ['1975',  1500,      20667],
+          ['1976',  1500,    18667],
+          ['1977',  1500,     21667],
+          ['1978',  1500,      20000],
+          ['1979',  1500,       20000],
+          ['1980',  2200,      27273],
+          ['1981',  4800,      27083],
+          ['1982',  6283,     28962],
+          ['1983',  6733,       32099],
+          ['1984',  7468,     30793],
+          ['1985',  7840,      40079],
+          ['1986',  11347,       36071],
+          ['1987',  8951,     36819],
+          ['1988',  10544,      35870],
+          ['1989',  12143,      52713],
+          ['1990',  15025,     29605],
+          ['1991',  17973,      35879],
+          ['1992',  22208,      32077],
+          ['1993',  25976,       42662],
+          ['1994',  28975,     40455],
+          ['1995',  32287,      36924],
+          ['1996',  35781,     31633],
+          ['1997',  41766,       29736],
+          ['1998',  45152,      32146],
+          ['1999',  50161,      28489],
+         
+          ['2000',  51971,      24875],
+          ['2001',  61795,      26351],
+          ['2002',  67194,      26442],
+          ['2003',  74979,     27325],
+          ['2004',  88888,      18936],
+          ['2005',  96697,      25633],
+          ['2006',  146010,      25166],
+          ['2007',  119687,     25048],
+          ['2008',  115919,     22460],
+          ['2009',  116794,      23952],
+          ['2010',  117603,     22800],
+          ['2011',  112855,      24835],
+          ['2012',  124843,       22782],
+          ['2013',  109759,     20282],
+          ['2014',  141019,      28589],
+          ['2015',  142000,      29577],
+          ['2016',  71425,       48889],
+          ['2017',  53952,      72953],
+          ['2018',  43946,      69185],
+          ['2019',  44780,       71700],
+          ['2020',  59920,      59524],
+          
+        ]);
 
-     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        var options2 = {
+          title: 'Area harvested (ha)',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
 
-     chart.draw(data, options);
-   }
+        var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart2'));
 
-const range = document.querySelectorAll(".range-slider span input");
-progress = document.querySelector(".range-slider .progress");
-let gap = 1;
-const inputValue = document.querySelectorAll(".numberVal input");
-range.forEach((input) => {
- input.addEventListener("input", (e) => {
-   let minRange = parseInt(range[0].value);
-   let maxRange = parseInt(range[1].value);
-
-   if (maxRange - minRange < gap) {
-     if (e.target.className === "range-min") {
-       range[0].value = maxRange - gap;
-     } else {
-       range[1].value = minRange + gap;
-     }
-   } else {
-     progress.style.left = (minRange / range[0].max) * 100 + "%";
-     progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
-     inputValue[0].value = minRange;
-     inputValue[1].value = maxRange;
-   }
- });
-});
-
-$(function() {
-$("#showForm").on("click", function() {
-  $("#addForm").toggle();
-});
-$("#showForm2").on("click", function() {
-  $("#addForm2").toggle();
-});
-$("#showForm3").on("click", function() {
-  $("#addForm3").toggle();
-});
-
-
-});
-
+        chart2.draw(data2, options2);
+    }
 </script>
 </body>
 </html>

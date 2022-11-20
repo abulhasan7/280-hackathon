@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
+    #container{
+            display: flex;
+        }
     body {
     background-color:white;
   }
@@ -94,7 +99,7 @@
     margin-left: 250px; /* Same as the width of the sidenav */
     font-size: 20px; /* Increased text to enable scrolling */
     padding: 0px 10px;
-    margin-top: -13em;
+    margin-top: -10em;
   }
   
   
@@ -162,15 +167,6 @@
     border-radius: 20px;
     opacity: 1;
   }
-  #addForm {
-  display: none;
-}
-#addForm2 {
-  display: none;
-}
-#addForm3 {
-  display: none;
-}
 
   </style>
 </head>
@@ -226,66 +222,30 @@
     <a href="map3.html">Walnuts</a>
   </div>
   <button onclick="window.location.href='imports1.html'" class="dropdwn-btn">Imports</button>
-  <button class="dropdwn-btn">Yield
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdwn-container">
-    <a href="yield.html">Iran's Yield</a>
-    <a href="yield2.html">Phillipine's Yield</a>
-  </div>
+  <button class="dropdwn-btn">Yield</button>
   
 </div>
 <div class="main">
-  <h2 style="margin-left: 500px;">CHARTS</h2>
-  
-  <div id="addForm">
-  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
-  <div class="min-value numberVal">
-    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
-  </div>
-  &nbsp;
-  <div class="range-slider">
-    <div class="progress"></div>
-    <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1960" max="2020" value="1995">
-      <!-- <span class="range-min-value">0</span> -->
-    </span>
-    <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1960" max="2020" value="2005">
-      <!-- <span class="range-max-value">100</span> -->
-    </span>
-  </div>
-  &nbsp;
-  <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
-  </div>
-</div>
-  <div id="chart_div"></div>
-</div>
-<div id="addForm">
-  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded" style="margin-left: 200px;">
-  <div class="min-value numberVal">
-    <input type="number" class="" min="1960" max="2020" value="1995" disabled>
-  </div>
-  &nbsp;
-  <div class="range-slider">
-    <div class="progress"></div>
-    <span class="range-min-wrapper">
-      <input class="range-min" type="range" min="1960" max="2020" value="1995">
-      <!-- <span class="range-min-value">0</span> -->
-    </span>
-    <span class="range-max-wrapper">
-      <input class="range-max" type="range" min="1960" max="2020" value="2005">
-      <!-- <span class="range-max-value">100</span> -->
-    </span>
-  </div>
-  &nbsp;
-  <div class="max-value numberVal">
-    <input type="number" class="border text-center" min="1960" max="2020" value="2005" disabled>
-  </div>
-</div>
-  <div id="chart_div"></div>
-</div>
+  <label>Country</label>
+    <select id="country-select">
+        <option value="Egypt">Egypt</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+    </select>
+    <label>Crop</label>
+    <select id="crop-select">
+        <option value="Wheat">Wheat</option>
+        <option value="Rice">Rice</option>
+    </select>
+    <label>Year</label>
+    <select id="year-select">
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+    </select>
+    <div id="container">
+        <div id="sankey_basic" style="width: 600px; height: 300px;"></div>
+        <div id="pie_chart" style="width: 400px; height: 300px;"></div>
+    </div>
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
@@ -304,71 +264,77 @@ var dropdown = document.getElementsByClassName("dropdwn-btn");
    });
  }
 
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawBasic);
+ google.charts.load('current', { 'packages': ['sankey', 'corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart(year = 2020, country = 'Egypt', crop = 'Wheat') {
 
-function drawBasic() {
+            var sanKeyData = new google.visualization.DataTable();
+            sanKeyData.addColumn('string', 'Importing Country');
+            sanKeyData.addColumn('string', 'Exporting Country');
+            sanKeyData.addColumn('number', 'Value');
 
-     var data = new google.visualization.DataTable();
-     data.addColumn('number', 'Year');
-     data.addColumn('number', 'GDP');
+            let importsData = getImportData(year, country, crop);
+            sanKeyData.addRows(importsData[0]);
+            var pieData = google.visualization.arrayToDataTable(importsData[1]);
 
-     data.addRows([
-      [2016,20],[1999,16],[2020,89],[2008,98],[2001,60],[2015,28]
-     ]);
-     data.sort(({column: 0, desc:false}));
+            // Sets chart options.
+            var options = {
+                width: 600,
+            };
 
-     var options = {
-       hAxis: {
-         title: 'Year'
-       },
-       vAxis: {
-         title: 'GDP'
-       }
-     };
+            // Instantiates and draws our chart, passing in some options.
+            var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+            chart.draw(sanKeyData, options);
+            var piechart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+            piechart.draw(pieData, { width: 400, title: `${crop} Import Quantity(tonnes), ${year}` });
+        }
 
-     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        function getImportData(year, country, crop) {
+            let data = localStorage.getItem(country);
+            if (data == null) {
+                getImportsFromApi(country).then(response => filterImportsData(year, country, crop, data));
+            } else {
+                return filterImportsData(year, country, crop, JSON.parse(data));
+            }
 
-     chart.draw(data, options);
-   }
+        }
 
-const range = document.querySelectorAll(".range-slider span input");
-progress = document.querySelector(".range-slider .progress");
-let gap = 1;
-const inputValue = document.querySelectorAll(".numberVal input");
-range.forEach((input) => {
- input.addEventListener("input", (e) => {
-   let minRange = parseInt(range[0].value);
-   let maxRange = parseInt(range[1].value);
+        function filterImportsData(year, country, crop, data) {
+            console.log('input param is ', year, country, crop)
+            console.log('data is', data)
+            let finalSankeyData = [];
+            let finalPieData = [['Country', 'Imports']];
+            data.filter(elem => elem["Year"] == year && elem['Item'] == crop).sort(elem => elem["Value"]).forEach(elem => { finalSankeyData.push([country, elem['Partner Countries'], elem['Value']]); finalPieData.push([elem['Partner Countries'], elem['Value']]) });
+            console.log('finalData is ', finalSankeyData);
+            return [finalSankeyData.slice(0, 5), finalPieData];
+        }
 
-   if (maxRange - minRange < gap) {
-     if (e.target.className === "range-min") {
-       range[0].value = maxRange - gap;
-     } else {
-       range[1].value = minRange + gap;
-     }
-   } else {
-     progress.style.left = (minRange / range[0].max) * 100 + "%";
-     progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
-     inputValue[0].value = minRange;
-     inputValue[1].value = maxRange;
-   }
- });
-});
+        async function getImportsFromApi(country) {
+            let response = await fetch('http://localhost:3000/imports/')
+            let data = await response.json();
+            console.log('respnse form back', data)
+            localStorage.setItem('Saudi Arabia', JSON.stringify(data['Saudi Arabia']));
+            localStorage.setItem('Egypt', JSON.stringify(data.Egypt));
+            return data[country];
+        }
+        document.getElementById('crop-select').addEventListener('change', (event) => {
+            let year = document.getElementById('year-select').value;
+            let country = document.getElementById('country-select').value;
+            drawChart(year, country, event.target.value)
+        })
 
-$(function() {
-$("#showForm").on("click", function() {
-  $("#addForm").toggle();
-});
-$("#showForm2").on("click", function() {
-  $("#addForm2").toggle();
-});
-$("#showForm3").on("click", function() {
-  $("#addForm3").toggle();
-});
+        document.getElementById('country-select').addEventListener('change', (event) => {
+            let year = document.getElementById('year-select').value;
+            let crop = document.getElementById('crop-select').value;
+            drawChart(year, event.target.value, crop)
+        })
 
+        document.getElementById('year-select').addEventListener('change', (event) => {
+            let country = document.getElementById('country-select').value;
+            let crop = document.getElementById('crop-select').value;
+            drawChart(event.target.value, country, crop)
+        })
 
-});
 
 </script>
 </body>
